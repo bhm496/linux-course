@@ -24,8 +24,13 @@ Raportin kirjoittaminen
 -Miten liitän kuvakaappauksia raporttiin? 
 
 a) Asenna Debian 13-Trixie virtuaalikoneeseen. 
+Asennus onnistui.
+
+<img width="512" height="246" alt="image" src="https://github.com/user-attachments/assets/8f272934-571b-4017-92b7-3115432d8516" />
+
 
 b) Asenna Salt
+
 Ensin yritin tekoälyn avulla aktivoida kopiointi ominaisuuden Debiaaniin, vaikka olen yrittänyt monesti mutta ei onnistunut.Uskoisin että johtuisi Guest Addition  
 CD image:sta, kun yritän kometoa  "sudo sh /media/cdrom/VBoxLinuxAdditions.run"  , se sanoo että ei voi avata koska tiedostoa ei löyty. Kuvassakin näkyy että Guest additions päivittämine ei onnistu ja se jää 77% kohdassa. 
 <img width="854" height="353" alt="image" src="https://github.com/user-attachments/assets/d3fbf780-8ecb-4ca7-9a65-f06a6dde1755" />
@@ -65,13 +70,18 @@ c) Viisi tärkeintä Saltin tilafunktiota Linuxissa pkg, file, service, user, cm
 
 
 d) Esimerkki idempotenssista. Aja 'salt-call --local' komentoja
+
 Idempotentti on metodi, jossa sen vaikutukset ovat samat riippumatta siitä, suoritetaanko se vain yhden vai useamman kerran eli uusi ajokerta ei tee mitään muutoksia. 
 
 
 Tarkistuslista:
+
 x) Tehty
+
 a) Tehty vaikka piti asentaa kahta kerta debian 13
+
 b) Kesken, ei onnistunut täysin, salt --version komennon jälkeen en päässyt eteenpäin
+
 c) Kesken, en pääse ajamaan tilafunktion komentoja kun en saanut salt-call --local toimimaan
 d) Kesken, täydennän kun saan salt toimimaan. 
 
