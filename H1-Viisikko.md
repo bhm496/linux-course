@@ -51,6 +51,7 @@ Se on sormenjälki, joka tunnistaa avaimen.
 <img width="823" height="165" alt="image" src="https://github.com/user-attachments/assets/b53ed82d-13e1-4fa0-b52f-de6e4f29939e" />
 
 Asennetaan repository eli arkistoa. Lisäämällä avaimen luotamme projektin. Yritin komentoa mutta se sanoi että sellaista tiedostoa ei ole olemassa. 
+
 <img width="610" height="82" alt="image" src="https://github.com/user-attachments/assets/4a10e56e-10e2-4f73-bd29-f602037e6d4f" />
 
 Tässä vaiheessa päivitetään ohjelmistot ja asennetaan salt-minion ja salt-master mutta se sanoi ettei se saa paketti paikantamaan. 
@@ -75,10 +76,15 @@ c) Kesken, en pääse ajamaan tilafunktion komentoja kun en saanut salt-call --l
 d) Kesken, täydennän kun saan salt toimimaan. 
 
 Lähteet:
+
 Salt asennus: https://terokarvinen.com/install-salt-on-debian-13-trixie/
+
 Salt-call --local: https://terokarvinen.com/2021/salt-run-command-locally/
+
 Salt Master ja Salt Slave: https://terokarvinen.com/2018/03/28/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/
+
 Raportin kirjoittamisen ohjeet: https://terokarvinen.com/2006/06/04/raportin-kirjoittaminen-4/
+
 Debian 13 asennus virtuaalikoneelle: https://terokarvinen.com/2021/install-debian-on-virtualbox/
 
 
