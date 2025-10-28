@@ -156,9 +156,9 @@ a) Tehty vaikka piti asentaa kahta kertaa debian 13
 
 b) Kesken, ei onnistunut täysin, en saanut asentaa salt
 
-c) Kesken, en pääse ajamaan tilafunktion komentoja kun en saanut salt-call --local toimimaan.
+c) Kesken, en pääse ajamaan tilafunktion komentoja kun en saanut salt-call --local toimimaan. Liitän kuvakaappauksia kun saan salt toimimaan. 
 
-d) Kesken, täydennän kun saan salt toimimaan. 
+d) Kesken, täydennän kun saan salt toimimaan. Liitän kuvakaappauksia kun pääsen ajamaan komentoja. 
 
 
 Lähteet:
