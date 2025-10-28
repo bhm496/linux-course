@@ -63,6 +63,7 @@ Tässä vaiheessa päivitetään ohjelmistot ja asennetaan salt-minion ja salt-m
 <img width="1004" height="258" alt="image" src="https://github.com/user-attachments/assets/60931526-0266-4231-9071-b6ae6a53b62d" />
 
 Tässäkin näkyy että Saltin testin komennot eivät toimi eli seuraavien vaiheiden komennot eivät toimi. Yritin komennot kotihakemistossa ja saltrepossa. 
+
 <img width="903" height="406" alt="image" src="https://github.com/user-attachments/assets/9a3fd42b-ebdf-4862-8879-ba35c0322acc" />
 
 
