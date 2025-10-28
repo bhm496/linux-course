@@ -72,23 +72,62 @@ salt --version ei toimi, vaikka tein ohjeiden mukaisesti. Luulisin ongelman joht
 
 
 #c) Viisi tärkeintä Saltin tilafunktiota Linuxissa pkg, file, service, user, cmd.
+Saltin asennus ei vielä onnistunut, joten en saanut komentoja ajettua käytännössä.  
+Alla kuitenkin esimerkit tärkeimmistä tilafunktioista ja niiden tarkoituksesta. 
+Käytetty lähde: https://terokarvinen.com/2021/salt-run-command-locally/
+
+1. pkg
+pkg.installed` varmistaa, että tietty ohjelma on asennettu järjestelmään.
+Asensin tree paketin komennolla
+$ sudo salt-call --local -l info state.single pkg.installed tree
+
+
+2. file
+file.managed luo tai ylläpitää tiedoston tietyllä sisällöllä.
+Luon tiedosto nimellä /tmp/helloworld, jonka sisältö on “Hello World!
+Komennolla: $ sudo salt-call --local -l info state.single file.managed /tmp/helloworld contents='Hello World!
+
+
+3.service
+service.running varmistaa, että palvelu on käynnissä ja käynnistyy automaattisesti onnistuneesti kun asetukset on vaihdettu.
+Komennolla: $ sudo salt-call --local -l info state.single service.running apache2 enable=True
+Komento käynnistää Apache2-palvelun ja asettaa sen käynnistymään automaattisesti. 
+
+4.user
+user.present varmistaa että tietty käyttäjää on olemassa. 
+Komennolla: $ sudo salt-call --local -l info state.single user.present name=robabe1
+
+5.cmd
+cmd.run ajaa komentorivikomennon. 
+Komennolla: $ sudo salt-call --local -l info state.single cmd.run 'touch /tmp/foo' creates="/tmp/foo"
+Komento luo tiedoston /tmp/foo.
+creates-parametri tekee tästä idempotentin elitiedostoa ei luoda uudestaan.
 
 
 #d) Esimerkki idempotenssista. Aja 'salt-call --local' komentoja
 
-Idempotentti on metodi, jossa sen vaikutukset ovat samat riippumatta siitä, suoritetaanko se vain yhden vai useamman kerran eli uusi ajokerta ei tee mitään muutoksia. 
+Idempotentti tarkoittaa että komennon lopputulokset ovat samat riippumatta siitä, ajetaanko se vain yhden vai useamman kerran eli uusi ajokerta ei tee mitään muutoksia. 
+Komento: $ sudo salt-call --local state.single pkg.installed name=tree
 
+Ensimmäinen ajo: ohjelman asennus
+
+Toinen ajo: komennon toisto heti perään
+
+Idempotenssin tarkoitus on se että tila pysyy samana, vaikka komento toistetaan.
+
+En saanut tätä testattua käytännössä, koska Salt ei vielä toiminut koneellani.
 
 
 Tarkistuslista:
 
 x) Tehty
 
-a) Tehty vaikka piti asentaa kahta kerta debian 13
+a) Tehty vaikka piti asentaa kahta kertaa debian 13
 
-b) Kesken, ei onnistunut täysin, salt --version komennon jälkeen en päässyt eteenpäin
+b) Kesken, ei onnistunut täysin, en saanut asentaa salt
 
-c) Kesken, en pääse ajamaan tilafunktion komentoja kun en saanut salt-call --local toimimaan
+c) Kesken, en pääse ajamaan tilafunktion komentoja kun en saanut salt-call --local toimimaan.
+
 d) Kesken, täydennän kun saan salt toimimaan. 
 
 
@@ -103,6 +142,9 @@ Salt Master ja Salt Slave: https://terokarvinen.com/2018/03/28/salt-quickstart-s
 Raportin kirjoittamisen ohjeet: https://terokarvinen.com/2006/06/04/raportin-kirjoittaminen-4/
 
 Debian 13 asennus virtuaalikoneelle: https://terokarvinen.com/2021/install-debian-on-virtualbox/
+
+ChatGPT
+
 
 
 
