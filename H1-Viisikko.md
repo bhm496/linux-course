@@ -1,19 +1,20 @@
 H1 Viisikko
 
-x)
+#x)Lue ja tiivistä
 
 Install Salt on Debian 13 Trixie
 -Ohje miten asennetaan Salt Debian 13 käyttöjärjestelmään
 -kahden tiedoston asennus suoraan salt sivulta 
 -PGP julkinen avain
+-salt-minion ja salt-master asennus apt install -komennolla
 
 Run Salt Command Locally
 -Salt Slave asennus
--Salt-call --local komennon käyttö
+-Salt-call --local komennon käyttö ilman master 
 -Saltin tilafunktiota pkg, file, service, user and cmd
 
 Salt Quickstart
--Salt Master ja Slave
+-Salt Master ja Slave 
 -Salt Master antaa käskyjä ja hallinnoi konfiguraatioita ja Salt Slave suorittaa ne
 Montako slave Salt master voi hallita? 
 
@@ -23,16 +24,17 @@ Raportin kirjoittaminen
 -Vaiheiden perustelu eli mitä teit ja mitä tapahtui
 -Miten liitän kuvakaappauksia raporttiin? 
 
-a) Asenna Debian 13-Trixie virtuaalikoneeseen. 
+#a) Asenna Debian 13-Trixie virtuaalikoneeseen. 
 Asennus onnistui.
 
 <img width="512" height="246" alt="image" src="https://github.com/user-attachments/assets/8f272934-571b-4017-92b7-3115432d8516" />
 
 
-b) Asenna Salt
+#b) Asenna Salt
 
 Ensin yritin tekoälyn avulla aktivoida kopiointi ominaisuuden Debiaaniin, vaikka olen yrittänyt monesti mutta ei onnistunut.Uskoisin että johtuisi Guest Addition  
 CD image:sta, kun yritän kometoa  "sudo sh /media/cdrom/VBoxLinuxAdditions.run"  , se sanoo että ei voi avata koska tiedostoa ei löyty. Kuvassakin näkyy että Guest additions päivittämine ei onnistu ja se jää 77% kohdassa. 
+
 <img width="854" height="353" alt="image" src="https://github.com/user-attachments/assets/d3fbf780-8ecb-4ca7-9a65-f06a6dde1755" />
 
 
@@ -66,11 +68,13 @@ Tässäkin näkyy että Saltin testin komennot eivät toimi eli seuraavien vaihe
 
 <img width="903" height="406" alt="image" src="https://github.com/user-attachments/assets/9a3fd42b-ebdf-4862-8879-ba35c0322acc" />
 
+salt --version ei toimi, vaikka tein ohjeiden mukaisesti. Luulisin ongelman johtuen tallennusjärjestelmästä tai Debianista, ehkä olen vahingossa tehnyt virhettä asennusvaiheessa,tai Repo ei asentunut oikein. Jos jollain tavalla voisin Salt asentumaan koneelleni tai ehkä pitää tehdä Debianin asennus alusta uudelleen. 
 
-c) Viisi tärkeintä Saltin tilafunktiota Linuxissa pkg, file, service, user, cmd.
+
+#c) Viisi tärkeintä Saltin tilafunktiota Linuxissa pkg, file, service, user, cmd.
 
 
-d) Esimerkki idempotenssista. Aja 'salt-call --local' komentoja
+#d) Esimerkki idempotenssista. Aja 'salt-call --local' komentoja
 
 Idempotentti on metodi, jossa sen vaikutukset ovat samat riippumatta siitä, suoritetaanko se vain yhden vai useamman kerran eli uusi ajokerta ei tee mitään muutoksia. 
 
