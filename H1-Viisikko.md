@@ -1,6 +1,6 @@
 H1 Viisikko
 
-#x)Lue ja tiivistä
+#x) Lue ja tiivistä
 
 Install Salt on Debian 13 Trixie
 -Ohje miten asennetaan Salt Debian 13 käyttöjärjestelmään
@@ -47,7 +47,7 @@ Ensin loin Saltrepo tiedostoa.
 Latasin kahta tiedostoa osoitteesta  https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/linux-deb.html
 <img width="1004" height="579" alt="image" src="https://github.com/user-attachments/assets/2045d9c8-744c-451e-b89e-5fb9fcfe19f5" />
 
-tutkitaan tiedostoa.  
+Tutkitaan tiedostoa.  
 <img width="648" height="840" alt="image" src="https://github.com/user-attachments/assets/bebb56e7-628f-4733-93c1-0a82718128ec" />
 
 Tämä on PGP-julkinen avain. Se on ASCII-armor-muodossa, base64-muodossa.Helppo luettava. 
@@ -71,37 +71,56 @@ Tässäkin näkyy että Saltin testin komennot eivät toimi eli seuraavien vaihe
 salt --version ei toimi, vaikka tein ohjeiden mukaisesti. Luulisin ongelman johtuen tallennusjärjestelmästä tai Debianista, ehkä olen vahingossa tehnyt virhettä asennusvaiheessa,tai Repo ei asentunut oikein. Jos jollain tavalla voisin Salt asentumaan koneelleni tai ehkä pitää tehdä Debianin asennus alusta uudelleen. 
 
 
+
 #c) Viisi tärkeintä Saltin tilafunktiota Linuxissa pkg, file, service, user, cmd.
-Saltin asennus ei vielä onnistunut, joten en saanut komentoja ajettua käytännössä.  
+Saltin asennus ei vielä onnistunut, joten en saanut komentoja ajettua käytännössä. 
+
 Alla kuitenkin esimerkit tärkeimmistä tilafunktioista ja niiden tarkoituksesta. 
+
 Käytetty lähde: https://terokarvinen.com/2021/salt-run-command-locally/
 
+
 1. pkg
+   
 pkg.installed` varmistaa, että tietty ohjelma on asennettu järjestelmään.
+
 Asensin tree paketin komennolla
 $ sudo salt-call --local -l info state.single pkg.installed tree
 
 
 2. file
+
 file.managed luo tai ylläpitää tiedoston tietyllä sisällöllä.
+
 Luon tiedosto nimellä /tmp/helloworld, jonka sisältö on “Hello World!
 Komennolla: $ sudo salt-call --local -l info state.single file.managed /tmp/helloworld contents='Hello World!
 
 
 3.service
+
 service.running varmistaa, että palvelu on käynnissä ja käynnistyy automaattisesti onnistuneesti kun asetukset on vaihdettu.
+
 Komennolla: $ sudo salt-call --local -l info state.single service.running apache2 enable=True
+
 Komento käynnistää Apache2-palvelun ja asettaa sen käynnistymään automaattisesti. 
 
+
 4.user
-user.present varmistaa että tietty käyttäjää on olemassa. 
+
+user.present varmistaa että tietty käyttäjää on olemassa.
+
 Komennolla: $ sudo salt-call --local -l info state.single user.present name=robabe1
 
+
 5.cmd
+
 cmd.run ajaa komentorivikomennon. 
+
 Komennolla: $ sudo salt-call --local -l info state.single cmd.run 'touch /tmp/foo' creates="/tmp/foo"
+
 Komento luo tiedoston /tmp/foo.
 creates-parametri tekee tästä idempotentin elitiedostoa ei luoda uudestaan.
+
 
 
 #d) Esimerkki idempotenssista. Aja 'salt-call --local' komentoja
