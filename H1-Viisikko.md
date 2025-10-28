@@ -80,7 +80,7 @@ Alla kuitenkin esimerkit tärkeimmistä tilafunktioista ja niiden tarkoituksesta
 Käytetty lähde: https://terokarvinen.com/2021/salt-run-command-locally/
 
 
-1. pkg
+1.pkg
    
 pkg.installed` varmistaa, että tietty ohjelma on asennettu järjestelmään.
 
@@ -88,12 +88,15 @@ Asensin tree paketin komennolla
 $ sudo salt-call --local -l info state.single pkg.installed tree
 
 
-2. file
+
+2.file
 
 file.managed luo tai ylläpitää tiedoston tietyllä sisällöllä.
 
 Luon tiedosto nimellä /tmp/helloworld, jonka sisältö on “Hello World!
+
 Komennolla: $ sudo salt-call --local -l info state.single file.managed /tmp/helloworld contents='Hello World!
+
 
 
 3.service
@@ -105,11 +108,13 @@ Komennolla: $ sudo salt-call --local -l info state.single service.running apache
 Komento käynnistää Apache2-palvelun ja asettaa sen käynnistymään automaattisesti. 
 
 
+
 4.user
 
 user.present varmistaa että tietty käyttäjää on olemassa.
 
 Komennolla: $ sudo salt-call --local -l info state.single user.present name=robabe1
+
 
 
 5.cmd
@@ -119,18 +124,24 @@ cmd.run ajaa komentorivikomennon.
 Komennolla: $ sudo salt-call --local -l info state.single cmd.run 'touch /tmp/foo' creates="/tmp/foo"
 
 Komento luo tiedoston /tmp/foo.
+
 creates-parametri tekee tästä idempotentin elitiedostoa ei luoda uudestaan.
+
+
 
 
 
 #d) Esimerkki idempotenssista. Aja 'salt-call --local' komentoja
 
-Idempotentti tarkoittaa että komennon lopputulokset ovat samat riippumatta siitä, ajetaanko se vain yhden vai useamman kerran eli uusi ajokerta ei tee mitään muutoksia. 
+Idempotentti tarkoittaa että komennon lopputulokset ovat samat riippumatta siitä, ajetaanko se vain yhden vai useamman kerran eli uusi ajokerta ei tee mitään muutoksia.
+
 Komento: $ sudo salt-call --local state.single pkg.installed name=tree
 
 Ensimmäinen ajo: ohjelman asennus
 
+
 Toinen ajo: komennon toisto heti perään
+
 
 Idempotenssin tarkoitus on se että tila pysyy samana, vaikka komento toistetaan.
 
