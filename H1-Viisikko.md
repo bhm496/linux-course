@@ -62,7 +62,7 @@ Asennetaan repository eli arkistoa. Lisäämällä avaimen luotamme projektin. Y
 Tässä vaiheessa päivitetään ohjelmistot ja asennetaan salt-minion ja salt-master mutta se sanoi ettei se saa paketti paikantamaan. 
 <img width="1004" height="258" alt="image" src="https://github.com/user-attachments/assets/60931526-0266-4231-9071-b6ae6a53b62d" />
 
-Tässäkin näkyy että Saltin testin komennot eivät toimi eli seuraavien vaiheiden komennot eivät toimi.
+Tässäkin näkyy että Saltin testin komennot eivät toimi eli seuraavien vaiheiden komennot eivät toimi. Yritin komennot kotihakemistossa ja saltrepossa. 
 <img width="903" height="406" alt="image" src="https://github.com/user-attachments/assets/9a3fd42b-ebdf-4862-8879-ba35c0322acc" />
 
 
@@ -72,6 +72,7 @@ c) Viisi tärkeintä Saltin tilafunktiota Linuxissa pkg, file, service, user, cm
 d) Esimerkki idempotenssista. Aja 'salt-call --local' komentoja
 
 Idempotentti on metodi, jossa sen vaikutukset ovat samat riippumatta siitä, suoritetaanko se vain yhden vai useamman kerran eli uusi ajokerta ei tee mitään muutoksia. 
+
 
 
 Tarkistuslista:
@@ -84,6 +85,7 @@ b) Kesken, ei onnistunut täysin, salt --version komennon jälkeen en päässyt 
 
 c) Kesken, en pääse ajamaan tilafunktion komentoja kun en saanut salt-call --local toimimaan
 d) Kesken, täydennän kun saan salt toimimaan. 
+
 
 Lähteet:
 
