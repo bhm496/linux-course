@@ -33,6 +33,8 @@ CD image:sta, kun yritän kometoa  "sudo sh /media/cdrom/VBoxLinuxAdditions.run"
 
 
 Salt asennus sujui alussa hyvin mutta kun halusin testata "salt --version" se sanoi "-bash:salt:command not found".enkä päässyt eteenpäin ajamaan kometoja.
+<img width="1004" height="244" alt="image" src="https://github.com/user-attachments/assets/21c11582-446e-4814-a861-6c10deec6a35" />
+
 
 c) Viisi tärkeintä Saltin tilafunktiota Linuxissa pkg, file, service, user, cmd.
 
