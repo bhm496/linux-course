@@ -27,18 +27,28 @@ a) Asenna Debian 13-Trixie virtuaalikoneeseen.
 
 b) Asenna Salt
 Ensin yritin tekoälyn avulla aktivoida kopiointi ominaisuuden Debiaaniin, vaikka olen yrittänyt monesti mutta ei onnistunut.Uskoisin että johtuisi Guest Addition  
-CD image:sta, kun yritän kometoa  "sudo sh /media/cdrom/VBoxLinuxAdditions.run"  , se sanoo että ei voi avata koska tiedostoa ei löyty.
+CD image:sta, kun yritän kometoa  "sudo sh /media/cdrom/VBoxLinuxAdditions.run"  , se sanoo että ei voi avata koska tiedostoa ei löyty. Kuvassakin näkyy että Guest additions päivittämine ei onnistu ja se jää 77% kohdassa. 
 <img width="854" height="353" alt="image" src="https://github.com/user-attachments/assets/d3fbf780-8ecb-4ca7-9a65-f06a6dde1755" />
 
 
 
 Salt asennus sujui alussa hyvin mutta kun halusin testata "salt --version" se sanoi "-bash:salt:command not found".enkä päässyt eteenpäin ajamaan kometoja.
-<img width="1004" height="244" alt="image" src="https://github.com/user-attachments/assets/21c11582-446e-4814-a861-6c10deec6a35" />
+Loin Saltrepo tiedostoa.
 <img width="881" height="540" alt="image" src="https://github.com/user-attachments/assets/c39b1486-de80-4d1a-8616-958c48f58f79" />
+
+Latasin kahta tiedostoa osoitteesta  https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/linux-deb.html
 <img width="1004" height="579" alt="image" src="https://github.com/user-attachments/assets/2045d9c8-744c-451e-b89e-5fb9fcfe19f5" />
+
+tutkitaan tiedostoa.  
 <img width="648" height="840" alt="image" src="https://github.com/user-attachments/assets/bebb56e7-628f-4733-93c1-0a82718128ec" />
+
+Tämä on PGP-julkinen avain. Se on ASCII-armor-muodossa, base64-muodossa.
 <img width="1003" height="304" alt="image" src="https://github.com/user-attachments/assets/7634704f-36a6-4cf6-b7db-cc6a248ad931" />
+
+Tässä sanotaan, missä luotettavan PGP-julkissivuston on oltava, "Signed-By". Se on sormenjälki, joka tunnistaa avaimen.
 <img width="823" height="165" alt="image" src="https://github.com/user-attachments/assets/b53ed82d-13e1-4fa0-b52f-de6e4f29939e" />
+
+
 <img width="1004" height="258" alt="image" src="https://github.com/user-attachments/assets/60931526-0266-4231-9071-b6ae6a53b62d" />
 <img width="903" height="406" alt="image" src="https://github.com/user-attachments/assets/9a3fd42b-ebdf-4862-8879-ba35c0322acc" />
 
