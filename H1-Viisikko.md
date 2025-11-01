@@ -25,9 +25,9 @@ Raportin kirjoittaminen
 -Miten liitän kuvakaappauksia raporttiin? 
 
 #a) Asenna Debian 13-Trixie virtuaalikoneeseen. 
+
 Asennus onnistui.
 
-<img width="512" height="246" alt="image" src="https://github.com/user-attachments/assets/8f272934-571b-4017-92b7-3115432d8516" />
 
 
 #b) Asenna Salt
@@ -67,16 +67,18 @@ Komennoilla: $ sudo cp public /etc/apt/keyrings/salt-archive-keyring.pgp
 $ sudo cp salt.sources /etc/apt/sources.list.d/
 
 
-<img width="1004" height="258" alt="image" src="https://github.com/user-attachments/assets/60931526-0266-4231-9071-b6ae6a53b62d" />
+<img width="801" height="55" alt="image" src="https://github.com/user-attachments/assets/f445d26b-6e66-4fec-9cbc-d6094f99d15e" />
+
+
 
 Päivitetään ja asennetaan Salt-minion ja Salt master komennoilla  $ sudo apt-get update
 $ sudo apt-get install salt-minion salt-master
 
-Tässäkin näkyy että Saltin testin komennot 
+Tässäkin näkyy Salt testin komento ja tulos 
 
 <img width="533" height="45" alt="image" src="https://github.com/user-attachments/assets/f06e684d-e896-4852-9101-6972403d7a3f" />
 
-Seuraava komento  $sudo salt-call --local state.single file.managed /tmp/hellotero luo  /tmp/hellotero tiedoston olemassaolon ja oikeudet ja raportoi onnistumisesta.
+Seuraava komento  $sudo salt-call --local state.single file.managed /tmp/hellotero luo  /tmp/hellotero tiedoston ja raportoi onnistumisesta.
 
 
 <img width="926" height="376" alt="image" src="https://github.com/user-attachments/assets/c1a48132-d22d-4d54-a590-239db212dd82" />
@@ -186,9 +188,9 @@ Tarkistuslista:
 
 x) Tehty
 
-a) Tehty vaikka piti asentaa kahta kertaa debian 13
+a) Tehty 
 
-b) Kesken, ei onnistunut täysin, en saanut asentaa salt
+b) Tehty
 
 c) Tehty.
 
