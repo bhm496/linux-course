@@ -73,7 +73,7 @@ salt --version ei toimi, vaikka tein ohjeiden mukaisesti. Luulisin ongelman joht
 
 
 #c) Viisi tärkeintä Saltin tilafunktiota Linuxissa pkg, file, service, user, cmd.
-Saltin asennus ei vielä onnistunut, joten en saanut komentoja ajettua käytännössä. 
+ 
 
 Alla kuitenkin esimerkit tärkeimmistä tilafunktioista ja niiden tarkoituksesta. 
 
@@ -87,6 +87,9 @@ pkg.installed` varmistaa, että tietty ohjelma on asennettu järjestelmään.
 Asensin tree paketin komennolla
 $ sudo salt-call --local -l info state.single pkg.installed tree
 
+<img width="748" height="452" alt="image" src="https://github.com/user-attachments/assets/a92cb7f3-63b5-49fe-9797-34534ffe993b" />
+
+Kuvan mukaisesti komento asensi tree koneelle Saltin kautta, ilman masteria, ja näytä tarkat tiedot siitä, mitä on tehty. 
 
 
 2.file
@@ -97,24 +100,36 @@ Luon tiedosto nimellä /tmp/helloworld, jonka sisältö on “Hello World!
 
 Komennolla: $ sudo salt-call --local -l info state.single file.managed /tmp/helloworld contents='Hello World!
 
+<img width="975" height="563" alt="image" src="https://github.com/user-attachments/assets/9bf20ac8-3a00-498b-82d8-1e293754759e" />
+
+Komennolla cat /tmp/helloworld sain nähdä sen sisällön. 
 
 
 3.service
 
 service.running varmistaa, että palvelu on käynnissä ja käynnistyy automaattisesti onnistuneesti kun asetukset on vaihdettu.
 
+Asensin ensin Apache2
+
+<img width="820" height="576" alt="image" src="https://github.com/user-attachments/assets/3997b228-c6c6-49bc-af07-b81bb9f39bee" />
+
+
 Komennolla: $ sudo salt-call --local -l info state.single service.running apache2 enable=True
 
 Komento käynnistää Apache2-palvelun ja asettaa sen käynnistymään automaattisesti. 
 
+<img width="922" height="506" alt="image" src="https://github.com/user-attachments/assets/65ef6ce4-6b2a-47c3-8273-2b2dbbdae86b" />
 
 
 4.user
 
 user.present varmistaa että tietty käyttäjää on olemassa.
 
-Komennolla: $ sudo salt-call --local -l info state.single user.present name=robabe1
+Komennolla: $ sudo salt-call --local -l info state.single user.present name=robabe2
 
+<img width="725" height="468" alt="image" src="https://github.com/user-attachments/assets/61f28135-4a4c-496b-aca2-ddef034edee8" />
+
+Käyttäjä robabe2 on jo Debian järjestelmässä.
 
 
 5.cmd
@@ -127,6 +142,7 @@ Komento luo tiedoston /tmp/foo.
 
 creates-parametri tekee tästä idempotentin elitiedostoa ei luoda uudestaan.
 
+<img width="795" height="597" alt="image" src="https://github.com/user-attachments/assets/b52e94b8-d074-4a3a-a0c4-8d3e0a937851" />
 
 
 
@@ -139,13 +155,13 @@ Komento: $ sudo salt-call --local state.single pkg.installed name=tree
 
 Ensimmäinen ajo: ohjelman asennus
 
-
 Toinen ajo: komennon toisto heti perään
+
+<img width="750" height="647" alt="image" src="https://github.com/user-attachments/assets/f5ae80fd-c2c2-43be-8411-8c3fc04d6337" />
 
 
 Idempotenssin tarkoitus on se että tila pysyy samana, vaikka komento toistetaan.
 
-En saanut tätä testattua käytännössä, koska Salt ei vielä toiminut koneellani.
 
 
 Tarkistuslista:
@@ -156,9 +172,9 @@ a) Tehty vaikka piti asentaa kahta kertaa debian 13
 
 b) Kesken, ei onnistunut täysin, en saanut asentaa salt
 
-c) Kesken, en pääse ajamaan tilafunktion komentoja kun en saanut salt-call --local toimimaan. Liitän kuvakaappauksia kun saan salt toimimaan. 
+c) Tehty.
 
-d) Kesken, täydennän kun saan salt toimimaan. Liitän kuvakaappauksia kun pääsen ajamaan komentoja. 
+d) Tehty.
 
 
 Lähteet:
