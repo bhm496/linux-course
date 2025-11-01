@@ -32,15 +32,6 @@ Asennus onnistui.
 
 #b) Asenna Salt
 
-Ensin yritin tekoälyn avulla aktivoida kopiointi ominaisuuden Debiaaniin, vaikka olen yrittänyt monesti mutta ei onnistunut.Uskoisin että johtuisi Guest Addition  
-CD image:sta, kun yritän kometoa  "sudo sh /media/cdrom/VBoxLinuxAdditions.run"  , se sanoo että ei voi avata koska tiedostoa ei löyty. Kuvassakin näkyy että Guest additions päivittämine ei onnistu ja se jää 77% kohdassa. 
-
-<img width="854" height="353" alt="image" src="https://github.com/user-attachments/assets/d3fbf780-8ecb-4ca7-9a65-f06a6dde1755" />
-
-
-
-Salt asennus sujui alussa hyvin mutta kun halusin testata "salt --version" se sanoi "-bash:salt:command not found".enkä päässyt eteenpäin ajamaan kometoja.
-
 Ensin päivitin järjestelmän ja  loin Saltrepo tiedostoa.
 
 <img width="841" height="346" alt="image" src="https://github.com/user-attachments/assets/9e3d0ab2-4e33-4a0e-93bc-50d6e556a2eb" />
@@ -67,25 +58,32 @@ Se on sormenjälki, joka tunnistaa avaimen.
 <img width="742" height="102" alt="image" src="https://github.com/user-attachments/assets/435316c1-e737-4d05-80e2-a0647b28d960" />
 
 
-Asennetaan repository eli arkistoa. Lisäämällä avaimen luotamme projektin. Tässä vaiheessa päivitetään ohjelmistot ja asennetaan salt-minion ja salt-master.
+Asennetaan repository eli arkistoa. Lisäämällä avaimen luotamme projektin. 
+
 Komennoilla: $ sudo cp public /etc/apt/keyrings/salt-archive-keyring.pgp
 $ sudo cp salt.sources /etc/apt/sources.list.d/
 
 
 <img width="1004" height="258" alt="image" src="https://github.com/user-attachments/assets/60931526-0266-4231-9071-b6ae6a53b62d" />
 
+Päivitetään ja asennetaan Salt-minion ja Salt master komennoilla  $ sudo apt-get update
+$ sudo apt-get install salt-minion salt-master
+
 Tässäkin näkyy että Saltin testin komennot 
 
 <img width="533" height="45" alt="image" src="https://github.com/user-attachments/assets/f06e684d-e896-4852-9101-6972403d7a3f" />
 
-Seuraava komento  $sudo salt-call --local state.single file.managed /tmp/hellotero
-	file /tmp/hellotero created  (tai varmistaa  /tmp/hellotero tiedoston olemassaolon ja oikeudet ja raportoi onnistumisesta.
+Seuraava komento  $sudo salt-call --local state.single file.managed /tmp/hellotero luo  /tmp/hellotero tiedoston olemassaolon ja oikeudet ja raportoi onnistumisesta.
 
-<img width="1004" height="507" alt="image" src="https://github.com/user-attachments/assets/52bec0d1-a6ca-4e51-9a10-0edd81e37c1f" />
+
+<img width="926" height="376" alt="image" src="https://github.com/user-attachments/assets/c1a48132-d22d-4d54-a590-239db212dd82" />
+
 
 Testataa vielä
 
-<img width="925" height="378" alt="image" src="https://github.com/user-attachments/assets/5d3af262-2cfd-49f9-8195-fd96f54b6843" />
+
+<img width="441" height="42" alt="image" src="https://github.com/user-attachments/assets/514de3c3-f6cf-44ab-a443-8b9bf44fafba" />
+
 
 
 
