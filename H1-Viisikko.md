@@ -42,6 +42,9 @@ Latasin kahta tiedostoa osoitteesta  https://docs.saltproject.io/salt/install-gu
 <img width="903" height="356" alt="image" src="https://github.com/user-attachments/assets/c070073d-43a5-4ab3-ad90-4d9f8676d1c5" />
 
 
+<img width="1185" height="638" alt="image" src="https://github.com/user-attachments/assets/9d3c05c7-44a8-4dae-ac9d-4479216d106e" />
+
+
 Tutkitaan tiedostoa.  
 
 <img width="740" height="534" alt="image" src="https://github.com/user-attachments/assets/4002bdcc-1562-42df-a21e-82c8c0610582" />
