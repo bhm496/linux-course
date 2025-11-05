@@ -66,10 +66,28 @@ A basic example
 a) Hei infrakoodi!
 Kokeile paikallisesti (esim 'sudo salt-call --local') infraa koodina. Kirjota sls-tiedosto, joka tekee esimerkkitiedoston /tmp/ -kansioon.
 
+Päivitetään järjestelmä ja salt minion asennus
 
+<img width="717" height="236" alt="image" src="https://github.com/user-attachments/assets/4e0e2f2d-b1c1-4a49-9594-1a2895cb6cb2" />
 
+Loin uusi moduuli nimellä "hello". Moduulit asentavat, konfiguroivat ja käynnistävät jonkin ohjelman. 
 
+Tässä /srv/salt/ on kansio, joka jaetaan kaikkien orjatietokoneiden kanssa.
+Siirrytään kansiolle. 
 
+<img width="587" height="36" alt="image" src="https://github.com/user-attachments/assets/c6375562-8b53-4d19-88a9-34e9d4f4e5ad" />
+
+Pääsin muokkamaan tekstieditoriin komennolla sudo salt-call --local state.apply hellotero ja sinne kirjoitin 
+
+<img width="525" height="158" alt="image" src="https://github.com/user-attachments/assets/3a9386bc-602d-4332-9d96-eef0a9479d21" />
+
+Testasin sen komennolla $ sudo salt-call --local state.apply hello
+
+<img width="692" height="415" alt="image" src="https://github.com/user-attachments/assets/f02d239d-b304-4422-a837-f1ed162b3654" />
+
+Katsoin että Salt on tehnyt työnsä oikein.
+
+<img width="517" height="72" alt="image" src="https://github.com/user-attachments/assets/468cde10-3dce-41ac-9f16-d9ecbaa322b6" />
 
 
 
