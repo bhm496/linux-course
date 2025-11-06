@@ -132,6 +132,7 @@ Sisällöksi kirjoitin
 Loin tiedoston ja muokkasin sen komennoilla $sudo mkdir -p /srv/salt/helloservice ja $sudo nano /srv/salt/helloservice/init.sls
 
 Valitsin apache2 koska sen piti olla asennettuna järjestelmään
+
 <img width="550" height="96" alt="image" src="https://github.com/user-attachments/assets/600f4e89-942b-4cbc-b864-3f003abdddc5" />
 
 4.user, käyttäjän hallinta, user.present
@@ -147,12 +148,14 @@ Tässä päätin luoda uuden käyttäjän kaveri, en halunnut varmistaa minun om
 5.cdm, komentojen suoritus, cmd.run
 Ajoin ensin $sudo mkdir -p /srv/salt/hellocmd ja sitten $sudo nano /srv/salt/hellocmd/init.sls
 Tiedoston sisälle kirjoitin
+
 <img width="558" height="77" alt="image" src="https://github.com/user-attachments/assets/21c02974-1c5e-430f-a08b-0ab3138b1233" />
 
 Päivitin top.sls tiedoston sisältö ja kirjotin kaikki tilat komennolla $sudo nano /srv/salt/top.sls
 Kun avasin tiedoston siinä oli 
 
 <img width="131" height="57" alt="image" src="https://github.com/user-attachments/assets/cf6801d0-43db-49be-964c-459fa699e22a" />
+
 ja lisäsin 
 
 <img width="486" height="161" alt="image" src="https://github.com/user-attachments/assets/dbd50ed5-1ca1-418d-a49a-a23a92dfceff" />
@@ -163,7 +166,9 @@ Testasin kaikki tilat komennolla $sudo salt-call --local state.apply
 <img width="480" height="522" alt="image" src="https://github.com/user-attachments/assets/e7a7e9ce-6f1e-4539-a2c6-1c4a23f7fc84" />
 <img width="677" height="655" alt="image" src="https://github.com/user-attachments/assets/90254b7a-59f5-476e-b832-315cc6864456" />
 <img width="242" height="125" alt="image" src="https://github.com/user-attachments/assets/78778958-9f70-4fc2-b1f5-43c191f6452d" />
+
 Kaikki on kunnossa. 
+
 Ajoin ja testasin yksittäisen tilan hellopkg
 
 <img width="596" height="330" alt="image" src="https://github.com/user-attachments/assets/6e55f9f7-f358-44d8-92a0-e6f4ea9b88a0" />
@@ -194,6 +199,7 @@ Päivitin top.sls tiedoston ja uusi versio on näin eli lisäsin multitask lista
 <img width="761" height="196" alt="image" src="https://github.com/user-attachments/assets/164e7035-d409-4e83-8999-f9c5c6985968" />
 
 Testasin sen idempotenssi eli ajamaan useita kertoja 
+
 <img width="632" height="493" alt="image" src="https://github.com/user-attachments/assets/f9c0d246-9c9c-4769-a254-b49c5b3f8d64" />
 
 Tämä koemento $sudo salt-call --local state.apply multitask, asentaa Apache2 (jos ei vielä ole),
@@ -216,16 +222,24 @@ Testasin vielä toisella komennolla $sudo salt-call --local state.apply test=Tru
 
 
 Tarkistuslista:
+
 x)
+
 a)
+
 b)
+
 c)
+
 d)
 
 
 Lähteet: 
+
 https://terokarvinen.com/2024/hello-salt-infra-as-code/
+
 https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml
+
 https://docs.saltproject.io/en/latest/ref/states/top.html
 
 
