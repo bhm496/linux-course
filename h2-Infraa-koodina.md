@@ -113,6 +113,7 @@ Tein jokaiselle funktiolle oma kansio ja init.sls tiedosto.
 1.pkg pakettien asennus, pkg.installed
 Loin tiedosto hellopkg komennolla $sudo mkdir -p /srv/salt/hellopkg
 Pääsin muokkamaan tiedostoa komennolla $sudo nano /srv/salt/hellopkg/init.sls
+
 <img width="537" height="61" alt="image" src="https://github.com/user-attachments/assets/adb78b60-66cf-4c80-bd0c-daa36c94895d" />
 
 Sen sisällä kirjoitin
