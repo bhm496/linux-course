@@ -279,6 +279,8 @@ Lähteet:
 
 Tekoäly
 
+Vinkit terokarvinen.com
+
 https://terokarvinen.com/2024/hello-salt-infra-as-code/
 
 https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml
