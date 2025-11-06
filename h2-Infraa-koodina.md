@@ -181,7 +181,9 @@ Testasin kaikki tilat komennolla $sudo salt-call --local state.apply
 
 <img width="677" height="655" alt="image" src="https://github.com/user-attachments/assets/90254b7a-59f5-476e-b832-315cc6864456" />
 
+
 <img width="242" height="125" alt="image" src="https://github.com/user-attachments/assets/78778958-9f70-4fc2-b1f5-43c191f6452d" />
+
 
 Kaikki on kunnossa. 
 
