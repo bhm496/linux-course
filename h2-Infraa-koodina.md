@@ -176,7 +176,9 @@ ja lisäsin
 Testasin kaikki tilat komennolla $sudo salt-call --local state.apply
 
 <img width="678" height="532" alt="image" src="https://github.com/user-attachments/assets/5ac8593b-b2e1-4cbe-958e-fc6a70aa6d4a" />
+
 <img width="480" height="522" alt="image" src="https://github.com/user-attachments/assets/e7a7e9ce-6f1e-4539-a2c6-1c4a23f7fc84" />
+
 <img width="677" height="655" alt="image" src="https://github.com/user-attachments/assets/90254b7a-59f5-476e-b832-315cc6864456" />
 
 <img width="242" height="125" alt="image" src="https://github.com/user-attachments/assets/78778958-9f70-4fc2-b1f5-43c191f6452d" />
