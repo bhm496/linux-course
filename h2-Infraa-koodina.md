@@ -116,6 +116,7 @@ Pääsin muokkamaan tiedostoa komennolla $sudo nano /srv/salt/hellopkg/init.sls
 <img width="537" height="61" alt="image" src="https://github.com/user-attachments/assets/adb78b60-66cf-4c80-bd0c-daa36c94895d" />
 
 Sen sisällä kirjoitin
+
 <img width="527" height="72" alt="image" src="https://github.com/user-attachments/assets/9cf32ed3-ff23-4c7b-a645-0978fbacd67f" />
 
 2.file, tiedosto olemassa, file.managed
@@ -123,6 +124,7 @@ loin tiedosto ja muokkasin sen komennolla
 <img width="581" height="37" alt="image" src="https://github.com/user-attachments/assets/8012ea01-2257-4f33-9471-b8f06715582a" />
 
 Sisällöksi kirjoitin 
+
 <img width="542" height="150" alt="image" src="https://github.com/user-attachments/assets/9188e4e4-8106-451e-9b88-fe71369502a1" />
 
 3.Service, plavelu käynnissä, service.running
@@ -135,6 +137,7 @@ Valitsin apache2 koska sen piti olla asennettuna järjestelmään
 Ajoin komennot luodaaksen tiedoston ja muokkamaan sen $sudo mkdir -p /srv/salt/hellouser ja $sudo nano /srv/salt/hellouser/init.sls
 
 Sen sisään kirjoitin
+
 Tässä päätin luoda uuden käyttäjän kaveri, en halunnut varmistaa minun oman käyttäjän robabe2 olemassaolon.
 
 <img width="542" height="82" alt="image" src="https://github.com/user-attachments/assets/247e66c6-f9cb-476c-8295-71f3a2a5d447" />
@@ -147,18 +150,82 @@ Tiedoston sisälle kirjoitin
 
 Päivitin top.sls tiedoston sisältö ja kirjotin kaikki tilat komennolla $sudo nano /srv/salt/top.sls
 Kun avasin tiedoston siinä oli 
+
 <img width="131" height="57" alt="image" src="https://github.com/user-attachments/assets/cf6801d0-43db-49be-964c-459fa699e22a" />
 ja lisäsin 
+
 <img width="486" height="161" alt="image" src="https://github.com/user-attachments/assets/dbd50ed5-1ca1-418d-a49a-a23a92dfceff" />
 
 Testasin kaikki tilat komennolla $sudo salt-call --local state.apply
+
 <img width="678" height="532" alt="image" src="https://github.com/user-attachments/assets/5ac8593b-b2e1-4cbe-958e-fc6a70aa6d4a" />
 <img width="480" height="522" alt="image" src="https://github.com/user-attachments/assets/e7a7e9ce-6f1e-4539-a2c6-1c4a23f7fc84" />
 <img width="677" height="655" alt="image" src="https://github.com/user-attachments/assets/90254b7a-59f5-476e-b832-315cc6864456" />
 <img width="242" height="125" alt="image" src="https://github.com/user-attachments/assets/78778958-9f70-4fc2-b1f5-43c191f6452d" />
 Kaikki on kunnossa. 
 Ajoin ja testasin yksittäisen tilan hellopkg
+
 <img width="596" height="330" alt="image" src="https://github.com/user-attachments/assets/6e55f9f7-f358-44d8-92a0-e6f4ea9b88a0" />
+
+Testasin vielä kaikkien tilojen tulokset
+Komennoilla 
+$dpkg -l | grep htop , tarkista että htop asennettu
+$cat /tmp/hellofile.txt  , katso tiedosto
+$sudo systemctl status apache2  , tarkista palvelu
+$getent passwd hellokaveri   , tarkista käyttäjä
+$cat /tmp/hellocmd.txt  , katso komennon tulos
+
+<img width="1107" height="475" alt="image" src="https://github.com/user-attachments/assets/2d1a748f-6ae8-4660-9af1-4c1604654980" />
+
+d)Tee sls-tiedosto
+Tee sls-tiedosto, joka käyttää vähintään kahta eri tilafunktiota näistä: package, file, service, user. Tarkista eri ohjelmalla, että lopputulos on oikea. Osoita useammalla ajolla, että sls-tiedostosi on idempotentti.
+
+Loin kansion komennolla $sudo mkdir -p /srv/salt/multitask
+Avasin tieodoston komennolla $sudoedit /srv/salt/multitask/init.sls
+Sen sisälle kirjoitin,  Valitsin kahta tilafunktiota 
+pkg.installed → package
+service.running → service
+
+<img width="770" height="186" alt="image" src="https://github.com/user-attachments/assets/50854c53-aeee-4b8a-8975-c1356ad7f083" />
+
+Päivitin top.sls tiedoston ja uusi versio on näin eli lisäsin multitask listaan
+
+<img width="761" height="196" alt="image" src="https://github.com/user-attachments/assets/164e7035-d409-4e83-8999-f9c5c6985968" />
+
+Testasin sen idempotenssi eli ajamaan useita kertoja 
+<img width="632" height="493" alt="image" src="https://github.com/user-attachments/assets/f9c0d246-9c9c-4769-a254-b49c5b3f8d64" />
+
+Tämä koemento $sudo salt-call --local state.apply multitask, asentaa Apache2 (jos ei vielä ole),
+käynnistää sen ja ottaa automaattisen käynnistyksen käyttöön,
+tekee sen oikeassa järjestyksessä require-rivien ansiosta
+
+Toistasin sen komento uudelleen ja se ei vaikuttanut tulokseen
+
+<img width="605" height="507" alt="image" src="https://github.com/user-attachments/assets/5c9430be-b422-48c1-b3bd-f6cef35f331d" />
+
+Testasin sen eri keinolla eli komennolla $sudo systemctl status apache2 ja Apache2 on active(running)
+
+<img width="793" height="326" alt="image" src="https://github.com/user-attachments/assets/473df618-5cde-4444-bfe9-b3f5cb6cc9f8" />
+
+
+Testasin vielä toisella komennolla $sudo salt-call --local state.apply test=True , kaikki näyttää olevan kunnossa
+
+<img width="621" height="692" alt="image" src="https://github.com/user-attachments/assets/e5b10f76-e3f7-49d4-8872-709d30c3ba71" />
+<img width="862" height="653" alt="image" src="https://github.com/user-attachments/assets/2ed0d6f8-d16f-45be-9797-ae2c5d954017" />
+
+
+Tarkistuslista:
+x)
+a)
+b)
+c)
+d)
+
+
+Lähteet: 
+https://terokarvinen.com/2024/hello-salt-infra-as-code/
+https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml
+https://docs.saltproject.io/en/latest/ref/states/top.html
 
 
 
