@@ -1,5 +1,6 @@
 # h2 Infraa koodina
 
+
 x)Lue ja tiivistä.
 
 1)Hello Salt Infra as code, https://terokarvinen.com/2024/hello-salt-infra-as-code/
@@ -9,6 +10,7 @@ x)Lue ja tiivistä.
 -Salt moduulin luonti ja  asetukset kirjoitetaa init.sls tiedostoihin.
 
 -Idempotenssi, Salt luo puuttuvan tiedoston ensimmäisessä koodin ajamisessa, ja seuraavat ajot eivät tee enää muutoksia.
+
 
 2)Salt contributors, https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml
 
@@ -42,6 +44,7 @@ Lists and dictionaries - YAML block structures
 
 -Listat tai sanakirjat luodaan lohkorakenteina yhdysmerkin (- ) avulla.
 
+
 3)Salt contributors: The top file, https://docs.saltproject.io/en/latest/ref/states/top.html, kohdat
 
 Introduction
@@ -61,6 +64,7 @@ A basic example
   Kohderyhmät sisältävät Tilapisteitä.
 
   State files, lista varsinaisista määritystiedostoista, jotka suoritetaan kohderyhmän koneissa.
+
 
 
 a) Hei infrakoodi!
@@ -91,6 +95,7 @@ Katsoin että Salt on tehnyt työnsä oikein.
 <img width="517" height="72" alt="image" src="https://github.com/user-attachments/assets/468cde10-3dce-41ac-9f16-d9ecbaa322b6" />
 
 
+
 b) Toppping. 
 Tee top-file, niin että kaikki omat tilasi ajetaan kerralla komennolla 'sudo salt-call --local state.apply'.
 
@@ -104,6 +109,7 @@ Tekstieditoriin kirjoitin base:
 Ajetaan nyt kaikki tilat komennolla $sudo salt-call --local state.apply
 
 <img width="547" height="325" alt="image" src="https://github.com/user-attachments/assets/e5feabea-6864-4009-a7d6-9eebf5e753f1" />
+
 
 c) Viisikko tiedostossa.
 Tee erilliset esimerkit kustakin viidestä tärkeimmästä tilafunktiosta pkg, file, service, user, cmd. Kirjoita esimerkit omiksi tiloikseen /srv/salt/ alle, esim /srv/salt/hellopkg/init.sls.
@@ -120,6 +126,8 @@ Sen sisällä kirjoitin
 
 <img width="527" height="72" alt="image" src="https://github.com/user-attachments/assets/9cf32ed3-ff23-4c7b-a645-0978fbacd67f" />
 
+
+
 2.file, tiedosto olemassa, file.managed
 loin tiedosto ja muokkasin sen komennolla 
 <img width="581" height="37" alt="image" src="https://github.com/user-attachments/assets/8012ea01-2257-4f33-9471-b8f06715582a" />
@@ -128,12 +136,16 @@ Sisällöksi kirjoitin
 
 <img width="542" height="150" alt="image" src="https://github.com/user-attachments/assets/9188e4e4-8106-451e-9b88-fe71369502a1" />
 
+
+
 3.Service, plavelu käynnissä, service.running
 Loin tiedoston ja muokkasin sen komennoilla $sudo mkdir -p /srv/salt/helloservice ja $sudo nano /srv/salt/helloservice/init.sls
 
 Valitsin apache2 koska sen piti olla asennettuna järjestelmään
 
 <img width="550" height="96" alt="image" src="https://github.com/user-attachments/assets/600f4e89-942b-4cbc-b864-3f003abdddc5" />
+
+
 
 4.user, käyttäjän hallinta, user.present
 Ajoin komennot luodaaksen tiedoston ja muokkamaan sen $sudo mkdir -p /srv/salt/hellouser ja $sudo nano /srv/salt/hellouser/init.sls
@@ -143,6 +155,7 @@ Sen sisään kirjoitin
 Tässä päätin luoda uuden käyttäjän kaveri, en halunnut varmistaa minun oman käyttäjän robabe2 olemassaolon.
 
 <img width="542" height="82" alt="image" src="https://github.com/user-attachments/assets/247e66c6-f9cb-476c-8295-71f3a2a5d447" />
+
 
 
 5.cdm, komentojen suoritus, cmd.run
