@@ -82,7 +82,7 @@ Siirrytään kansiolle.
 
 <img width="587" height="36" alt="image" src="https://github.com/user-attachments/assets/c6375562-8b53-4d19-88a9-34e9d4f4e5ad" />
 
-Pääsin muokkamaan tekstieditoriin komennolla $sudo salt-call --local state.apply hellotero ja sinne kirjoitin 
+Pääsin muokkamaan tekstieditoriin komennolla $sudo salt-call --local state.apply hello ja sinne kirjoitin 
 
 <img width="525" height="158" alt="image" src="https://github.com/user-attachments/assets/3a9386bc-602d-4332-9d96-eef0a9479d21" />
 
@@ -117,6 +117,7 @@ Tee erilliset esimerkit kustakin viidestä tärkeimmästä tilafunktiosta pkg, f
 Tein jokaiselle funktiolle oma kansio ja init.sls tiedosto.
 
 1.pkg pakettien asennus, pkg.installed
+
 Loin tiedosto hellopkg komennolla $sudo mkdir -p /srv/salt/hellopkg
 Pääsin muokkamaan tiedostoa komennolla $sudo nano /srv/salt/hellopkg/init.sls
 
@@ -193,10 +194,15 @@ Ajoin ja testasin yksittäisen tilan hellopkg
 
 Testasin vielä kaikkien tilojen tulokset
 Komennoilla 
+
 $dpkg -l | grep htop , tarkista että htop asennettu
+
 $cat /tmp/hellofile.txt  , katso tiedosto
+
 $sudo systemctl status apache2  , tarkista palvelu
+
 $getent passwd hellokaveri   , tarkista käyttäjä
+
 $cat /tmp/hellocmd.txt  , katso komennon tulos
 
 <img width="1107" height="475" alt="image" src="https://github.com/user-attachments/assets/2d1a748f-6ae8-4660-9af1-4c1604654980" />
@@ -233,7 +239,28 @@ Testasin sen eri keinolla eli komennolla $sudo systemctl status apache2 ja Apach
 <img width="793" height="326" alt="image" src="https://github.com/user-attachments/assets/473df618-5cde-4444-bfe9-b3f5cb6cc9f8" />
 
 
-Testasin vielä toisella komennolla $sudo salt-call --local state.apply test=True , kaikki näyttää olevan kunnossa
+Testasin vielä toisella komennolla $sudo salt-call --local state.apply test=True , Ensin kun ajoin komennon se näytti tämän 
+
+<img width="902" height="112" alt="image" src="https://github.com/user-attachments/assets/fe2c1707-8306-4db3-ad56-01ece54fe945" />
+
+Tekoälyn avulla löysin virheeni eli minulla on ollut kaksi eri SLS-tiedostoa (helloservice ja multitask) joissa on sama ID-nimi apache2. Salt vaatii että jokainen ID on globaalisti uniikki.
+ja sitten löysin niitä tiedostoja komennolla $sudo grep -r "apache2:" /srv/salt/ 
+
+ja korjasin tämän tiedoston komennolla $sudo nano /srv/salt/helloservice/init.sls
+
+Sisällössä oli tämä joka aiheutti virheen: 
+apache2:
+  service.running:
+  
+Ja muokkasin sen jotta Salt tunnistaa
+cron_service:  
+  service.running:
+    - name: cron
+    - enable: True
+
+ <img width="542" height="92" alt="image" src="https://github.com/user-attachments/assets/b8bdfef2-e7ae-4d1a-9b1b-b32895d87403" />
+   
+Sitten kun ajoin tämä komento $sudo salt-call --local state.apply test=true kaikki näytti olevan kunnossa
 
 <img width="621" height="692" alt="image" src="https://github.com/user-attachments/assets/e5b10f76-e3f7-49d4-8872-709d30c3ba71" />
 <img width="862" height="653" alt="image" src="https://github.com/user-attachments/assets/2ed0d6f8-d16f-45be-9797-ae2c5d954017" />
