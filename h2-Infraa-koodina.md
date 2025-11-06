@@ -224,18 +224,16 @@ Testasin vielä toisella komennolla $sudo salt-call --local state.apply test=Tru
 
 Tarkistuslista:
 
-x)
+Kaikki vaiheet (x, a–d) toteutettu onnistuneesti.
 
-a)
+Tilat toimivat paikallisesti ja ovat idempotentteja.
 
-b)
-
-c)
-
-d)
+Ymmärsin, miten eri tilafunktiot pkg, file, service, user ja cmd toimivat sekä miten top.sls hallitsee kokonaisuutta.
 
 
 Lähteet: 
+
+Tekoäly
 
 https://terokarvinen.com/2024/hello-salt-infra-as-code/
 
