@@ -34,6 +34,7 @@ Kokeilin komennolla $vagrant --version että onko minulla sen asennettua mutta j
 Latasin Vagrant amd64 osoitteesta: https://developer.hashicorp.com/vagrant/install
 
 Sitten ajoin uudestaan komento vagrant --version ja sain 
+
 <img width="401" height="47" alt="image" src="https://github.com/user-attachments/assets/3cb209b0-bf40-4f4c-a169-5c08de38207f" />
 
 Ajoin seuraavat komennot cmd:llä 
@@ -64,6 +65,40 @@ Katsoin myös ip osoitteen
 
 Komennolla exit pääsin pois Vargant sisältä.
 En ole varma pitääkö poista vagrant vai ei.
+
+
+b) Linux Vagrant. 
+Tee Vagrantilla uusi Linux-virtuaalikone.
+
+Käytin seuraavat komennot:
+mkdir linux-vagrant, loin kansio projektille
+cd linux-vagrant, siirryin sen sisälle
+vagrant init debian/bookworm64, Loin uusi Vargant projekti kansio
+vagrant up, käynnistin koneen
+vagrant ssh, menin koneen sisään
+hostname -I, testasin että kone toimi
+exit, poistuin koneelta
+
+<img width="431" height="76" alt="image" src="https://github.com/user-attachments/assets/a8acb073-bb94-49d3-b57b-9c25d90faeb2" />
+<img width="401" height="47" alt="image" src="https://github.com/user-attachments/assets/3cb209b0-bf40-4f4c-a169-5c08de38207f" />
+
+Kaikki on kunnossa. 
+
+
+c) Kaksin kaunihimpi. 
+Tee kahden Linux-tietokoneen verkko Vagrantilla. Osoita, että koneet voivat pingata toisiaan.
+Minulla on Windows kone eli ajan kaikki komennot isäntäjärjestelmään, eli asensin Vargant sinne. 
+
+
+Avasin vargantfile notepadillä ja sinne kirjoitin 
+
+<img width="621" height="396" alt="image" src="https://github.com/user-attachments/assets/dedc0388-8888-4ed6-a2ec-851e7cf77c58" />
+
+
+
+
+
+
 
 
 
