@@ -144,6 +144,7 @@ Koneiden sammuttaminen onnistuu komennolla $vagrant halt
 
 
 
+
 d) Herra-orja verkossa. 
 
 Demonstroi Salt herra-orja arkkitehtuurin toimintaa kahden Linux-koneen verkossa, jonka teit Vagrantilla. Asenna toiselle koneelle salt-master, toiselle salt-minion. Laita orjan /etc/salt/minion -tiedostoon masterin osoite. Hyväksy avain ja osoita, että herra voi komentaa orjakonetta.
