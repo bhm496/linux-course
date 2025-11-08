@@ -3,25 +3,36 @@ h3 Soitto kotiin
 x)Lue ja tiivistä. 
 
 1.Karvinen 2021, 
+
 https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/
 
 -Vargant Virtuabox asennus
+
 -Tehdään kaksi virtuaalikonetta Vargantin avulla
+
 -Koneet ovat yhdistettynä verkkoon ja kommunikoivat yhdessä
+
 -Helppo ja nopea poistaa virtuaalikonetta
 
+
 2.Karvinen 2018, 
+
 https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart%20salt%20stack%20master%20and%20slave%20on%20ubuntu%20linux
 
 -Salt Master ja Salt Slave asennus
+
 -Master kertoo, mitä tehtäviä minionien pitää tehdä.
+
 -Salt asentamiseen tarvitaan repository package
 
+
 3.Karvinen 2023, 
+
 https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file
 
 -Infra as Code, Your wishes as a text file
     -Palvelinten asetukset kirjoitetaan tekstitiedostoihin
+
 -top.sls - What Slave Runs What States
     -Tiedostossa määritetään mitä tehtäviä jokainen slave tekee
 
@@ -87,12 +98,87 @@ Kaikki on kunnossa.
 
 c) Kaksin kaunihimpi. 
 Tee kahden Linux-tietokoneen verkko Vagrantilla. Osoita, että koneet voivat pingata toisiaan.
+
 Minulla on Windows kone eli ajan kaikki komennot isäntäjärjestelmään, eli asensin Vargant sinne. 
 
+Avasin cmd ja loin projketi ja alusta Vagrantille komennoilla $mkdir twohost
+$cd twohost
+$vagrant init debian/bookworm64
 
-Avasin vargantfile notepadillä ja sinne kirjoitin 
+<img width="428" height="95" alt="image" src="https://github.com/user-attachments/assets/a22d987f-de31-405b-839f-4fe65d46e044" />
+<img width="640" height="50" alt="image" src="https://github.com/user-attachments/assets/fd3e9300-89d5-47dc-abfe-5d80eb78c0aa" />
 
-<img width="621" height="396" alt="image" src="https://github.com/user-attachments/assets/dedc0388-8888-4ed6-a2ec-851e7cf77c58" />
+
+Ajoin Vargantfile notepadillä ja sinne kirjoitin 
+
+<img width="784" height="459" alt="image" src="https://github.com/user-attachments/assets/3659c7d7-f16a-4ba5-8b58-558a1daa9aee" />
+
+Käynnistin virtuaalikoneet komennolla $vagrant up
+
+<img width="1004" height="900" alt="image" src="https://github.com/user-attachments/assets/b793c60b-7c86-495c-88d4-9a5b53dc75e2" />
+<img width="1004" height="902" alt="image" src="https://github.com/user-attachments/assets/a2c04af7-6605-46fa-bec4-ad8cfb07acfb" />
+<img width="1004" height="279" alt="image" src="https://github.com/user-attachments/assets/b969b660-e791-4dba-9507-4833f6bce28c" />
+
+Näkyy että koneet latautuvat ja ovat asentuneet 
+
+Testataan vielä koneiden toimivuutta komennolla $vagrant status
+<img width="1004" height="243" alt="image" src="https://github.com/user-attachments/assets/9dcadc8e-c7fd-4f0f-9c8c-982b383b8596" />
+
+Testasin verkkoyhteyttä khden koneen välillä avaamalla kahta komentoriviä samaan aikaan. 
+Ollaan twohost tiedostossa ja ensimmäisessä koneessa ajoin $vagrant ssh kone1 ja pingataan ping 192.168.60.20
+
+<img width="1004" height="675" alt="image" src="https://github.com/user-attachments/assets/a591f607-8fe2-4df7-b097-7b9fd33d6917" />
+
+Toiseen koneeseen ajetaan $vagrant ssh kone2 ja pingataan ping 192.168.60.10
+
+<img width="1004" height="663" alt="image" src="https://github.com/user-attachments/assets/34d80992-714c-4e94-94ed-152c45cb43dd" />
+
+Koneiden ip osoitteet voi tarkistaa komennolla $hostname -I
+
+<img width="722" height="47" alt="image" src="https://github.com/user-attachments/assets/9196e753-d300-48c7-a10b-cc3007d7ff11" />
+<img width="722" height="48" alt="image" src="https://github.com/user-attachments/assets/9c7aba75-e494-4ef4-8988-ba7b8e5001c7" />
+
+
+Tulokset näyttivät että koneet voivat kommunikoida keskenään, verkko toimii ja pingaus onnistui molempiin suuntiin
+Koneiden sammuttaminen onnistuu komennolla $vagrant halt
+
+
+
+d) Herra-orja verkossa. 
+
+Demonstroi Salt herra-orja arkkitehtuurin toimintaa kahden Linux-koneen verkossa, jonka teit Vagrantilla. Asenna toiselle koneelle salt-master, toiselle salt-minion. Laita orjan /etc/salt/minion -tiedostoon masterin osoite. Hyväksy avain ja osoita, että herra voi komentaa orjakonetta.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
