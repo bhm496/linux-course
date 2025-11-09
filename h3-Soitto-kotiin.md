@@ -333,6 +333,7 @@ d) Herra-orja verkossa	Salt master ja minion asennettu, avaimet hyväksytty, yht
 e) Tilojen testaus	Kaksi tilaa (file ja cmd) toimivat verkon yli, tulokset näkyvät.
 
 
+
 Lähteet:
 
 Two Machine Virtual Network With Debian 11 Bullseye and Vagrant: 
@@ -346,6 +347,8 @@ https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-tex
 Salt Quickstart – Salt Stack Master and Slave on Ubuntu Linux.:
 
 https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart%20salt%20stack%20master%20and%20slave%20on%20ubuntu%20linux
+
+
 
 Tekoäly
 
