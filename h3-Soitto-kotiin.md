@@ -1,8 +1,8 @@
 h3 Soitto kotiin
 
-x)Lue ja tiivistä. 
+# x)Lue ja tiivistä. 
 
-1.Karvinen 2021, 
+# 1.Karvinen 2021, 
 
 https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/
 
@@ -15,7 +15,7 @@ https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullsey
 -Helppo ja nopea poistaa virtuaalikonetta
 
 
-2.Karvinen 2018, 
+# 2.Karvinen 2018, 
 
 https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart%20salt%20stack%20master%20and%20slave%20on%20ubuntu%20linux
 
@@ -26,7 +26,7 @@ https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubu
 -Salt asentamiseen tarvitaan repository package
 
 
-3.Karvinen 2023, 
+# 3.Karvinen 2023, 
 
 https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file
 
@@ -37,7 +37,7 @@ https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-tex
     -Tiedostossa määritetään mitä tehtäviä jokainen slave tekee
 
 
-a)Hello Vagrant! 
+# a)Hello Vagrant! 
 
 Osoita jollain komennolla, että Vagrant on asennettu (esim tulostaa vagrantin versionumeron). 
 Jos et ole vielä asentanut niitä, raportoi myös Vagrant ja VirtualBox asennukset. (Jos Vagrant ja VirtualBox on jo asennettu, niiden asennusta ei tarvitse tehdä eikä raportoida uudelleen.)
@@ -78,7 +78,7 @@ Komennolla exit pääsin pois Vargant sisältä.
 En ole varma pitääkö poista vagrant vai ei.
 
 
-b) Linux Vagrant. 
+# b) Linux Vagrant. 
 Tee Vagrantilla uusi Linux-virtuaalikone.
 
 Käytin seuraavat komennot:
@@ -96,7 +96,7 @@ exit, poistuin koneelta
 Kaikki on kunnossa. 
 
 
-c) Kaksin kaunihimpi. 
+# c) Kaksin kaunihimpi. 
 Tee kahden Linux-tietokoneen verkko Vagrantilla. Osoita, että koneet voivat pingata toisiaan.
 
 Minulla on Windows kone eli ajan kaikki komennot isäntäjärjestelmään, eli asensin Vargant sinne. 
@@ -121,7 +121,7 @@ Käynnistin virtuaalikoneet komennolla $vagrant up
 
 Näkyy että koneet latautuvat ja ovat asentuneet 
 
-Testataan vielä koneiden toimivuutta komennolla $vagrant status
+Testataan vielä koneiden toimivuutta komennolla  $vagrant status
 <img width="1004" height="243" alt="image" src="https://github.com/user-attachments/assets/9dcadc8e-c7fd-4f0f-9c8c-982b383b8596" />
 
 Testasin verkkoyhteyttä khden koneen välillä avaamalla kahta komentoriviä samaan aikaan. 
@@ -145,21 +145,82 @@ Koneiden sammuttaminen onnistuu komennolla $vagrant halt
 
 
 
-d) Herra-orja verkossa. 
+# d) Herra-orja verkossa. 
 
 Demonstroi Salt herra-orja arkkitehtuurin toimintaa kahden Linux-koneen verkossa, jonka teit Vagrantilla. Asenna toiselle koneelle salt-master, toiselle salt-minion. Laita orjan /etc/salt/minion -tiedostoon masterin osoite. Hyväksy avain ja osoita, että herra voi komentaa orjakonetta.
 
+Muokkasin Vagrantfile sisältöä komennolla $notepad vagrantfile ja lisäsin 
+Vagrantfile sisältö:
+Vagrant.configure("2") do |config|
+  config.vm.define "master" do |master|
+    master.vm.box = "debian/bookworm64"
+    master.vm.network "private_network", ip: "192.168.88.12"
+  end
+  config.vm.define "minion" do |minion|
+    minion.vm.box = "debian/bookworm64"
+    minion.vm.network "private_network", ip: "192.168.88.13"
+  end
+end
+
+Komentorivillä cd twohost pääsin avaamaan vagrantia, ajoin $vagrant ssh master
+ja sen sisälle ajoin seuraavat komennot jotta saan ladattua bootstrap-skripti URL:sta:
+$wget -O bootstrap_salt.sh https://raw.githubusercontent.com/saltstack/salt-bootstrap/develop/bootstrap-salt.sh
+ja tarkistin että se on oikea skripti
+$head -5 bootstrap_salt.sh
+Sitten asensin Saltin:
+$sudo sh bootstrap_salt.sh -P -M -x python3
+
+<img width="1004" height="369" alt="image" src="https://github.com/user-attachments/assets/4e3bbc5b-7a9b-4a73-94bc-43a4389da309" />
+<img width="1004" height="313" alt="image" src="https://github.com/user-attachments/assets/63e1c4b8-5b34-4e07-a01f-fc39be7aa895" />
+
+Komennot $sudo systemctl start salt-master 
+$sudo systemctl enable salt-master käynnistivät master palvelun. 
+Komennolla $salt-master --version ja $sudo systemctl status salt-master tarkistin salt masterin tilanne ja näytti olevan kunnossa. 
+
+<img width="959" height="1059" alt="image" src="https://github.com/user-attachments/assets/4a91547a-aca2-4574-8177-1a3efeeba35a" />
+
+Kun master oli valmis kirjauduin ulos exit komennolla ja asensin minionin.
+Kirjauduin $vagrant ssh minion komennolla Salt-minionin koneeseen ja ajoin seuraavat komennot:
+Latasin bootstrap-skripti
+$wget -O bootstrap_salt.sh https://raw.githubusercontent.com/saltstack/salt-bootstrap/develop/bootstrap-salt.sh ja 
+Asensin Salt minionin
+$sudo sh bootstrap_salt.sh -P -x python3 (sama kuin master mutta ilman M-kirjainta)
+
+<img width="1004" height="580" alt="image" src="https://github.com/user-attachments/assets/7c357695-4d97-41ef-ada3-5cd3d912605a" />
+
+Kun minion on asennettu konfigudoin sen: 
+Määritin minionin koneella masterin IP osoite
+$echo "master: 192.168.88.12" | sudo tee /etc/salt/minion
+
+Ja käynnistin salt-minion uudelleen
+$sudo systemctl restart salt-minion
+
+Sitten tarkistin status
+sudo systemctl status salt-minion
+
+<img width="1004" height="740" alt="image" src="https://github.com/user-attachments/assets/3389b9e9-5d84-4119-8290-fdaa6ca87953" />
+
+Poistuin minionista ja hyväksyin avainta masterilla
+
+Näyttää lista avaimista: $vagrant ssh master -c "sudo salt-key -L"
+
+Tämä komento hyväksyy avaimet: $vagrant ssh master -c "sudo salt-key -A -y"
+
+$vagrant ssh master -c "sudo salt '*' test.ping"
+
+<img width="1004" height="450" alt="image" src="https://github.com/user-attachments/assets/3fc46226-bbb5-4575-89b6-e397f79af39b" />
+
+Komennolla $vagrant ssh master -c "sudo salt-key -A -y" tarkistin vielä hyväksytyt avaimet:
+
+<img width="996" height="190" alt="image" src="https://github.com/user-attachments/assets/2e2162b8-0a48-47a3-9857-a53a39fe08de" />
+
+Avainten hvyäksyminen onnistui ja Master voi komentaa minionia
 
 
 
+# e) Kokeile vähintään kahta tilaa verkon yli (viisikosta: pkg, file, service, user, cmd)
 
-
-
-
-
-
-
-
+Jotta pääse aja tilafunktiota loin /srv/salt/ kansion. 
 
 
 
