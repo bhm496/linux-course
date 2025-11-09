@@ -219,17 +219,40 @@ Avainten hvyäksyminen onnistui ja Master voi komentaa minionia
 
 
 # e) Kokeile vähintään kahta tilaa verkon yli (viisikosta: pkg, file, service, user, cmd)
+ 
+Ajoin seuraavat komennot: $cd twohost, $vagran up , $vagrant ssh master että pääsen maserin sisään. 
+Jotta pääse aja tilafunktiota loin /srv/salt/ kansion komennolla $sudo mkdir -p /srv/salt. 
+Valitsin kahta tilafunktiota, 
+1. file.managed - Tiedostonhallinta
+2. cmd.run - Komennon suoritus
+Näillä komennoilla master käskee ja minion toteaa. 
 
-Jotta pääse aja tilafunktiota loin /srv/salt/ kansion. 
+Loin top.sls tiedoston komennolla $echo 'base:
+  "*":
+    - hello' | sudo tee /srv/salt/top.sls
+
+<img width="527" height="163" alt="image" src="https://github.com/user-attachments/assets/9672fd30-d857-4e52-933f-24e5cf0746bd" />
+
+Sitten loin hello.sls tiedoston komennolla: 
+
+<img width="765" height="537" alt="image" src="https://github.com/user-attachments/assets/b3e8d01c-897b-47fc-83b8-1dc548435ffc" />
+
+Suoritin tilat $sudo salt '*' state.apply
+
+<img width="772" height="948" alt="image" src="https://github.com/user-attachments/assets/f8d07b3d-ebb3-445b-962d-a938b31a51eb" />
 
 
+Tarkistin vielä toimiiko $sudo salt '*' cmd.run 'cat /tmp/salt-test.txt'
+
+Tarkistin vielä mitä on luotu masterilla 
+$cat /srv/salt/top.sls
+$cat /srv/salt/hello.sls
+
+<img width="793" height="435" alt="image" src="https://github.com/user-attachments/assets/ff2d961d-fccb-409f-a6f0-8f09fe34c30f" />
 
 
-
-
-
-
-
+file.managed, Loin tiedoston /tmp/salt-test.txt minion-koneelle Saltin avulla. Tiedosto sisälsi tekstin 'Hei, Salt toimii!'.
+cmd.run - Suoritin echo-komennon minion-koneella, joka tulosti viestin 'Tiedosto luotu onnistuneesti!'.
 
 
 
