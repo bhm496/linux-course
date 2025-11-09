@@ -6,9 +6,9 @@ h3 Soitto kotiin
 
 https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/
 
--Vargant Virtuabox asennus
+-Vagrant Virtuabox asennus
 
--Tehdään kaksi virtuaalikonetta Vargantin avulla
+-Tehdään kaksi virtuaalikonetta Vagrantin avulla
 
 -Koneet ovat yhdistettynä verkkoon ja kommunikoivat yhdessä
 
@@ -260,6 +260,29 @@ cmd.run - Suoritin echo-komennon minion-koneella, joka tulosti viestin 'Tiedosto
 
 
 
+Tarkistuslista:
+
+a) Hello Vagrant	Vagrant ja VirtualBox asennettu ja testattu toimivaksi.	
+
+b) Linux Vagrant	Uusi Linux-virtuaalikone luotu ja käynnistetty onnistuneesti.	
+
+c) Kaksin kaunihimpi	Kaksi konetta luotu, verkko toimii, pingaus onnistuu molempiin suuntiin.	
+
+d) Herra-orja verkossa	Salt master ja minion asennettu, avaimet hyväksytty, yhteys toimii.	
+
+e) Tilojen testaus	Kaksi tilaa (file ja cmd) toimivat verkon yli, tulokset näkyvät.
+
+
+Lähteet:
+
+Two Machine Virtual Network With Debian 11 Bullseye and Vagrant: 
+https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/
+
+Salt Vagrant – automatically provision one master and two slaves.:
+https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file
+
+Salt Quickstart – Salt Stack Master and Slave on Ubuntu Linux.::
+https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart%20salt%20stack%20master%20and%20slave%20on%20ubuntu%20linux
 
 
 
