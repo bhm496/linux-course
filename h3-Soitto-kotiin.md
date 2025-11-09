@@ -350,8 +350,6 @@ https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubu
 
 
 
-Tekoäly
-
 Mainitut vinkit
 
 
