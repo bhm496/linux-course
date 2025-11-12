@@ -40,26 +40,27 @@ Testasin myös $ssh -p 1234 robabe2@localhost
 <img width="797" height="162" alt="image" src="https://github.com/user-attachments/assets/a4a20553-6482-4553-b497-01bbc9556a5c" />
 <img width="857" height="290" alt="image" src="https://github.com/user-attachments/assets/b168cf6a-0aa2-408a-8631-f7aa37fa16ae" />
 
-Poistin portin 1234 jotta käsin tehdyt asetukset poistuvat käytöstä.
 
-# Muokkaa sshd_config tiedostoa ja poista portti 1234
-sudo nano /etc/ssh/sshd_config
-# POISTA tai kommentoi rivi: Port 1234
 
-# Käynnistä uudelleen
-sudo systemctl restart ssh
+Muokkasin sshd_config tiedostoa ja poistin portti 1234
 
-# Tarkista että portti 1234 EI toimi
-nc -vz localhost 1234
+$sudo nano /etc/ssh/sshd_config
+
+Käynnistin uudelleen
+
+$sudo systemctl restart ssh
+
+Tarkistin vielä että portti 1234 ei toimi
+$nc -vz localhost 1234
 
 <img width="681" height="432" alt="image" src="https://github.com/user-attachments/assets/3235b2dc-e5c9-4bbe-adf7-bcf22a82c5f7" />
 
 <img width="585" height="91" alt="image" src="https://github.com/user-attachments/assets/9965bbae-6224-4152-8354-37153ebaf07e" />
 
 
-Sitten automatisoidaan asetukset
+Sitten automatisoin asetukset
 
-Salt-tila tarkistin komennolla $
+Salt-tila tarkistin komennolla $sudo salt-call --local state.apply ssh
 
 <img width="557" height="287" alt="image" src="https://github.com/user-attachments/assets/cf223d90-1d93-4374-bf57-73f0c8870d55" />
 
@@ -71,7 +72,8 @@ Tarkistin init.sls komennolla $sudo cat /srv/salt/ssh/init.sls
 
 <img width="561" height="345" alt="image" src="https://github.com/user-attachments/assets/c8924f1f-1321-4d0e-aa5f-2ba5252df6ba" />
 
-Ajoin Salt-tila
+Ajoin Salt-tila 
+$sudo salt-call --local state.apply ssh
 
 <img width="843" height="723" alt="image" src="https://github.com/user-attachments/assets/1877ddc7-adae-4181-bd55-ccc3988057d6" />
 <img width="702" height="717" alt="image" src="https://github.com/user-attachments/assets/04d66f20-8d8a-4add-b367-49e4c3591e43" />
@@ -79,17 +81,15 @@ Ajoin Salt-tila
 
 Tarkistin onnistumisen komennoilla
 
-# Aja salt-tila
-sudo salt-call --local state.apply ssh
+$sudo salt-call --local state.apply ssh
 
-# Tarkista että portti 1234 nyt toimii
-sudo ss -tlnp | grep ssh
-# PITÄISI NÄKYÄ: port 22 JA port 1234
+Tarkistin että portti 1234 nyt toimii
 
-nc -vz localhost 1234
-# PITÄISI SANOA: Connection succeeded
+$sudo ss -tlnp | grep ssh
 
-ssh -p 1234 robabe2@localhost "echo 'Nyt toimii!'"
+$nc -vz localhost 1234
+
+$ssh -p 1234 robabe2@localhost "echo 'Nyt toimii!'"
 
 <img width="807" height="128" alt="image" src="https://github.com/user-attachments/assets/758e361e-b283-4637-a91b-39975a4107d6" />
 
@@ -98,16 +98,21 @@ ssh -p 1234 robabe2@localhost "echo 'Nyt toimii!'"
 <img width="805" height="62" alt="image" src="https://github.com/user-attachments/assets/4b0e8d45-4553-4970-921e-38ed9ff8a615" />
 
 
-Pkg-File-Service -malli toimii:
 
-Paketin asennus
 
-Asetustiedoston hallinta
+Tarkistuslista:
 
-Palvelun hallinta watch-toiminnolla
+-Pkg-File-Service -malli toimii
 
-✅ Automaatio korjasi puutteen ilman käsin tekemistä
-✅ Watch-toiminto käynnistää palvelun uudelleen automaattisesti
+-Paketin asennus onnstui
+
+-Asetustiedoston hallinta käsin tehdyllä ja automaattisella
+
+-Palvelun hallinta watch-toiminnolla
+
+-Automaatio korjasi puutteen ilman käsin tekemistä
+
+-Watch-toiminto käynnistää palvelun uudelleen automaattisesti
 
 
 
