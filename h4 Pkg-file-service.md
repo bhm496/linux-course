@@ -136,6 +136,9 @@ Tarkistuslista:
 
 -Watch käynnistää palvelun uudelleen muutosten jälkeen
 
+
+
+
 Lähteet:
 
 https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/?fromSearch=karvinen%20salt%20ssh
