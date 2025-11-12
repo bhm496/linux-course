@@ -27,11 +27,14 @@ SSHd:n asetustiedostoon voi tehdä yksinkertaisesti kaksi "Port" riviä, molemma
 Ensin asensin SSH palvelinta komennoilla:
 
 $sudo apt-get update
+
 $sudo apt-get install ssh
 
 <img width="707" height="527" alt="image" src="https://github.com/user-attachments/assets/4a687b27-58ad-43da-bb54-7ece64c09d18" />
 
-Katsoin asetutstiedostoa $sudoedit /etc/ssh/sshd_config
+Katsoin asetutstiedostoa 
+
+$sudoedit /etc/ssh/sshd_config
 
 Etsin #Port 22, se on nyt kommentoitu ja poistin # ja aktivoin portin ja lisäsin myös uusi port 1234 .Tällä portilla testataan SSH-yhteyden.
 
@@ -69,9 +72,11 @@ $nc -vz localhost 1234
 <img width="585" height="91" alt="image" src="https://github.com/user-attachments/assets/9965bbae-6224-4152-8354-37153ebaf07e" />
 
 
-Sitten automatisoin asetukset
+Nyt halusin automatisoida saman prosessin Saltin avulla, jotta järjestelmä korjaa asetukset automaattisesti jatkossa.
 
-Salt-tila tarkistin komennolla $sudo salt-call --local state.apply ssh
+Salt-tila tarkistin komennolla 
+
+$sudo salt-call --local state.apply ssh
 
 <img width="557" height="287" alt="image" src="https://github.com/user-attachments/assets/cf223d90-1d93-4374-bf57-73f0c8870d55" />
 
@@ -79,7 +84,9 @@ Lisäsin port22 ja port1234 Masterin asetustiedostoihin.
 
 <img width="752" height="75" alt="image" src="https://github.com/user-attachments/assets/5116b2f1-cfbe-40a2-b13d-8765e821da7e" />
 
-Tarkistin init.sls komennolla $sudo cat /srv/salt/ssh/init.sls
+Tarkistin init.sls komennolla 
+
+$sudo cat /srv/salt/ssh/init.sls
 
 <img width="561" height="345" alt="image" src="https://github.com/user-attachments/assets/c8924f1f-1321-4d0e-aa5f-2ba5252df6ba" />
 
@@ -104,7 +111,7 @@ $nc -vz localhost 1234
 $ssh -p 1234 robabe2@localhost "echo 'Nyt toimii!'"
 
 
-Tähän tuli host key varoitus, kun olin muuttanut porttia. Poistin vanha host key komennolla 
+Tähän tuli host key varoitus, kun olin muuttanut porttia. Poistin vanhan host keyn komennolla 
 
 $ssh-keygen -f '/home/robabe2/.ssh/known_hosts' -R '[localhost]:1234'
 
@@ -123,21 +130,17 @@ Kun testasin uudelleen, SSH kysyi että hyväksytäänkö uusi host key, ja kaik
 
 Tarkistuslista:
 
--Pkg-File-Service -malli toimii
+-Opin Saltin pkg-file-service -mallin toiminnan
 
--Paketin asennus onnstui
+-Automaatiolla hallitaan asennus, asetukset ja palvelu
 
--Asetustiedoston hallinta käsin tehdyllä ja automaattisella
+-Watch käynnistää palvelun uudelleen muutosten jälkeen
 
--Palvelun hallinta watch-toiminnolla
+Lähteet:
 
--Automaatio korjasi puutteen ilman käsin tekemistä
+https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/?fromSearch=karvinen%20salt%20ssh
 
--Watch-toiminto käynnistää palvelun uudelleen automaattisesti
-
-
-
-
+Annetut vinkit
 
 
 
