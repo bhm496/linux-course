@@ -1,5 +1,6 @@
 #h4 Pkg-file-service
 
+
 # x) Lue ja tiivistä.
 
 Karvinen 2018: Pkg-File-Service – Control Daemons with Salt – Change SSH Server Port
@@ -9,6 +10,9 @@ https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-c
  -Salt automatisoi daemonien hallinnan kolmen hallintajärjestelmän avulla: Package-file-service
 
  -Asenna ohjelmisto, korvaa konfiguraatiotiedosto, Salt watcha sitä ja lopuksi käynnistä uudelleen daemon käyttääksesi uutta konfiguraatiota
+
+
+
 
 
 
@@ -32,8 +36,13 @@ Etsin #Port 22, se on nyt kommentoitu ja poistin # ja aktivoin portin ja lisäsi
 
 <img width="672" height="615" alt="image" src="https://github.com/user-attachments/assets/4278e20e-2e5e-4d66-9c27-b860efc639d8" />
 
-Käynnistin palvelun uudelleen komennolla $sudo systemctl restart ssh
-ja testasin että SSH toimi $sudo ss -tlnp | grep ssh. (testasin portti 1234 yhteyden)
+Käynnistin palvelun uudelleen komennolla
+
+$sudo systemctl restart ssh
+
+ja testasin että SSH toimi
+
+$sudo ss -tlnp | grep ssh. (testasin portti 1234 yhteyden)
 
 Testasin myös $ssh -p 1234 robabe2@localhost
 
@@ -51,6 +60,7 @@ Käynnistin uudelleen
 $sudo systemctl restart ssh
 
 Tarkistin vielä että portti 1234 ei toimi
+
 $nc -vz localhost 1234
 
 <img width="681" height="432" alt="image" src="https://github.com/user-attachments/assets/3235b2dc-e5c9-4bbe-adf7-bcf22a82c5f7" />
@@ -73,6 +83,7 @@ Tarkistin init.sls komennolla $sudo cat /srv/salt/ssh/init.sls
 <img width="561" height="345" alt="image" src="https://github.com/user-attachments/assets/c8924f1f-1321-4d0e-aa5f-2ba5252df6ba" />
 
 Ajoin Salt-tila 
+
 $sudo salt-call --local state.apply ssh
 
 <img width="843" height="723" alt="image" src="https://github.com/user-attachments/assets/1877ddc7-adae-4181-bd55-ccc3988057d6" />
