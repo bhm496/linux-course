@@ -102,11 +102,18 @@ $nc -vz localhost 1234
 
 $ssh -p 1234 robabe2@localhost "echo 'Nyt toimii!'"
 
+Tähän tuli host key varoitus, kun olin muuttanut porttia. Poistin vanha host key komennolla 
+
+$ssh-keygen -f '/home/robabe2/.ssh/known_hosts' -R '[localhost]:1234'
+
+Kun testasin uudelleen, SSH kysyi että hyväksytäänkö uusi host key, ja kaikki onnistui.
+
 <img width="807" height="128" alt="image" src="https://github.com/user-attachments/assets/758e361e-b283-4637-a91b-39975a4107d6" />
 
 <img width="883" height="406" alt="image" src="https://github.com/user-attachments/assets/2e036f2e-1529-4c69-a072-007d3e993c06" />
 
 <img width="805" height="62" alt="image" src="https://github.com/user-attachments/assets/4b0e8d45-4553-4970-921e-38ed9ff8a615" />
+
 
 
 
