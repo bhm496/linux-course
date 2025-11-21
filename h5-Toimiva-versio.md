@@ -15,7 +15,7 @@ https://git-scm.com/book/en/v2 , https://git-scm.com/book/en/v2/Getting-Started-
   Myöhemmin voit lähettää muutokset palvelimelle (esim. GitHub).  
 
 
-:
+---
 
 
 -Gitin käyttö on lähinnä 'git add . && git commit; git pull && git push'. Selitä tuon komennon jokainen osa. Käytä apuna itse valitsemiasi lähteitä ja viittaa niihin.
