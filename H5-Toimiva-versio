@@ -69,17 +69,14 @@ Siirsin repon hakemistoon komnnolla cd snowflake
 Komennolla $nano README.md avasin tiedoston ja muokkasin sen ja tallensin.
 
 
+Ajoin seuraavat komennot:
+$git add . ,
+$git commit  ,
+$git pull  ,
+$git push
 
-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
+Muutokset on tallennettu oikein. 
 
-
-
-
-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
-
-
-
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJuOT4ZyLHvjqqX0peUv09ixkgu/L3xu9vnDw3MTCd/W robabe2@debian-new
 
 
 
