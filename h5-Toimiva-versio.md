@@ -70,7 +70,7 @@ Kloonaa edellisessä kohdassa tehty uusi varasto itsellesi, tee muutoksia omalla
 
 Yritin kloonata ja muokata repo komentorivillä komennolla:
 
-$git clone https://github.com/bhm496/snowflake.git
+$git clone git@github.com:bhm496/snowflake.git
 
 Siirsin repon hakemistoon komnnolla cd snowflake
 
