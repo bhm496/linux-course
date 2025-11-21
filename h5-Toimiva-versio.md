@@ -33,7 +33,7 @@ https://www.atlassian.com/git/tutorials/syncing/git-pull#:~:text=The%20git%20pul
   git push: Lähettää omat tallennetut muutoksesi palvelimelle (esim. GitHubiin). Muutokset näkyvät sen jälkeen myös muille.
 
 
-
+---
 
 
 -Varaston terokarvinen/suolax/ historia, eli loki ja muutokset. Kätevimmin komentokehotteesta 'git clone https://github.com/terokarvinen/suolax.git; cd suolax/; git log --patch --color|less -R'.
