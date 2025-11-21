@@ -53,7 +53,21 @@ Wepistäkin saattaa onnistua kliksuttelemalla "Commits".
 
 
 
-# a)
+# a) Online. 
+
+Tee uusi varasto GitHubiin (tai Gitlabiin tai mihin vain vastaavaan palveluun). Varaston nimessä ja lyhyessä kuvauksessa tulee olla sana "snow". Aiemmin tehty varasto ei kelpaa. 
+(Muista tehdä varastoon tiedostoja luomisvaiheessa, esim README.md ja GNU General Public License 3)
+
+Loin Githubiin uusi repository nimellä snowflake ja siihen lisäsin README ja GNU License. 
+
+Sitten yritin kloonata ja muokata repo komentorivillä komennolla:
+
+$git clone https://github.com/bhm496/snowflake.git
+
+Siirsin repon hakemistoon komnnolla cd snowflake
+
+Komennolla $nano README.md avasin tiedoston ja muokkasin sen ja tallensin.
+
 
 
 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
@@ -61,7 +75,7 @@ github_pat_11BGPZFAI0ly33CJrzlrkh_q8ZDcGFgrpIvSyZdKAhj0VCLbgFzSqE7bpsv5NdN0FbF5E
 
 
 
-
+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
 
 
 
