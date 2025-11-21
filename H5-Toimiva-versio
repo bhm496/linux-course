@@ -60,7 +60,15 @@ Tee uusi varasto GitHubiin (tai Gitlabiin tai mihin vain vastaavaan palveluun). 
 
 Loin Githubiin uusi repository nimellä snowflake ja siihen lisäsin README ja GNU License. 
 
-Sitten yritin kloonata ja muokata repo komentorivillä komennolla:
+
+
+
+
+# b) Dolly. 
+
+Kloonaa edellisessä kohdassa tehty uusi varasto itsellesi, tee muutoksia omalla koneella, puske ne palvelimelle, ja näytä, että ne ilmestyvät weppiliittymään.
+
+Yritin kloonata ja muokata repo komentorivillä komennolla:
 
 $git clone https://github.com/bhm496/snowflake.git
 
@@ -76,6 +84,77 @@ $git pull  ,
 $git push
 
 Muutokset on tallennettu oikein. 
+
+
+# c) Doh!
+
+Tee tyhmä muutos gittiin, älä tee commit:tia. Tuhoa huonot muutokset ‘git reset --hard’. Huomaa, että tässä toiminnossa ei ole peruutusnappia.
+
+Avasin README.md tiedoston ja lisäsin sinne rivin. 
+
+Tarkistin että git on huomannut muutoksen komennolla $git status
+
+Sitten peruin tehdyt muutokset komennolla $git reset --hard
+
+Ajamalla uudelleen $git status varmistin että muutokset on peruttu. 
+
+
+
+
+# d) Tukki.
+
+Tarkastele ja selitä varastosi lokia. Tarkista, että nimesi ja sähköpostiosoitteesi näkyy haluamallasi tavalla ja korjaa tarvittaessa.
+
+Tarkistin ensin lyhyt commit loki
+
+$git log --oneline --graph --decorate
+
+Sitten ajoin $git log --patch , koko commit loki jossa näkyy tehdyt muutokset.  
+
+Tarkistin myös nimi ja sähköpostini komennolla $git log ja kaikki näytti oikein.
+
+
+
+
+
+
+# e) Suolattu rakki. 
+
+Aja Salt-tiloja omasta varastostasi. (Salt tiedostot mistä vain hakemistosta "--file-root teronSaltHakemisto". Esimerkiksi 'sudo salt-call --local --file-root srv/salt/ state.apply',
+huomaa suhteellinen polku.)
+
+Tein Salt tiedoston omaan repoosi 
+
+Loin hakemiston Salt tilalle: $mkdir -p salt. 
+
+Sitten loin tiedoston $nano salt/init.sls
+
+Tiedostoon lisäsin:
+
+/tmp/snowfile:
+  file.managed:
+    - contents: "Snow state toimii!"
+
+
+Sitten ajoin Salt tila
+
+$sudo salt-call --local --file-root . state.apply salt
+
+Tarkistin myös sen sisällön
+
+$cat /tmp/snowfile
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
