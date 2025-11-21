@@ -52,7 +52,7 @@ Wepistäkin saattaa onnistua kliksuttelemalla "Commits".
 
   Samaa voi katsoa GitHubissa kohdasta “Commits”.
 
-
+---
 
 # a) Online. 
 
@@ -64,7 +64,7 @@ Loin Githubiin uusi repository nimellä snowflake ja siihen lisäsin README ja G
 <img width="740" height="714" alt="image" src="https://github.com/user-attachments/assets/ffbaef8e-f3fe-477d-92e4-d22a81ef7138" />
 
 
-
+---
 
 # b) Dolly. 
 
@@ -93,7 +93,7 @@ Muutokset on tallennettu oikein.
 
 <img width="715" height="596" alt="image" src="https://github.com/user-attachments/assets/7e531b05-a1d8-491e-8ea9-29cd19a09714" />
 
-
+---
 
 # c) Doh!
 
@@ -111,7 +111,7 @@ Ajamalla uudelleen $git status varmistin että muutokset on peruttu.
 
 <img width="819" height="401" alt="image" src="https://github.com/user-attachments/assets/4e242ffe-7dd2-4daf-9c3a-edbfaf9a515c" />
 
-
+---
 
 # d) Tukki.
 
@@ -130,7 +130,7 @@ Tarkistin myös nimi ja sähköpostini komennolla $git log ja kaikki näytti oik
 
 <img width="866" height="398" alt="image" src="https://github.com/user-attachments/assets/cc88f720-9d60-44fd-8e7a-d5452ea9f703" />
 
-
+---
 
 # e) Suolattu rakki. 
 
@@ -161,6 +161,10 @@ $cat /tmp/snowfile
 
 <img width="979" height="581" alt="image" src="https://github.com/user-attachments/assets/b480a74b-f9b9-49d4-b066-a37523745849" />
 
+
+---
+
+Tarkistuslista:
 
 
 
