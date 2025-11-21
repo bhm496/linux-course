@@ -12,7 +12,7 @@ https://git-scm.com/book/en/v2 , https://git-scm.com/book/en/v2/Getting-Started-
   Git pitää kirjaa jokaisesta muutoksesta, kuka sen teki ja milloin, kuten loki. 
 
   Git toimii omalla koneellasi, eli voit tehdä töitä ilman verkkoa. 
-Myöhemmin voit lähettää muutokset palvelimelle (esim. GitHub).  
+  Myöhemmin voit lähettää muutokset palvelimelle (esim. GitHub).  
 
 
 
@@ -60,6 +60,7 @@ Tee uusi varasto GitHubiin (tai Gitlabiin tai mihin vain vastaavaan palveluun). 
 
 Loin Githubiin uusi repository nimellä snowflake ja siihen lisäsin README ja GNU License. 
 
+<img width="740" height="714" alt="image" src="https://github.com/user-attachments/assets/ffbaef8e-f3fe-477d-92e4-d22a81ef7138" />
 
 
 
@@ -85,6 +86,13 @@ $git push
 
 Muutokset on tallennettu oikein. 
 
+<img width="546" height="201" alt="image" src="https://github.com/user-attachments/assets/d88ac617-9706-4f64-a1e6-4190edf4dc5d" />
+
+<img width="521" height="250" alt="image" src="https://github.com/user-attachments/assets/27212fa1-6a5a-4a9e-b658-e2ee4222ae1e" />
+
+<img width="715" height="596" alt="image" src="https://github.com/user-attachments/assets/7e531b05-a1d8-491e-8ea9-29cd19a09714" />
+
+
 
 # c) Doh!
 
@@ -92,12 +100,15 @@ Tee tyhmä muutos gittiin, älä tee commit:tia. Tuhoa huonot muutokset ‘git r
 
 Avasin README.md tiedoston ja lisäsin sinne rivin. 
 
+<img width="615" height="213" alt="image" src="https://github.com/user-attachments/assets/6e04cbb2-60f5-415e-8441-928d654c6595" />
+
 Tarkistin että git on huomannut muutoksen komennolla $git status
 
 Sitten peruin tehdyt muutokset komennolla $git reset --hard
 
 Ajamalla uudelleen $git status varmistin että muutokset on peruttu. 
 
+<img width="819" height="401" alt="image" src="https://github.com/user-attachments/assets/4e242ffe-7dd2-4daf-9c3a-edbfaf9a515c" />
 
 
 
@@ -111,10 +122,12 @@ $git log --oneline --graph --decorate
 
 Sitten ajoin $git log --patch , koko commit loki jossa näkyy tehdyt muutokset.  
 
+<img width="858" height="829" alt="image" src="https://github.com/user-attachments/assets/606f0352-50ef-4cb0-99bd-2a99c51c34c6" />
+
+
 Tarkistin myös nimi ja sähköpostini komennolla $git log ja kaikki näytti oikein.
 
-
-
+<img width="866" height="398" alt="image" src="https://github.com/user-attachments/assets/cc88f720-9d60-44fd-8e7a-d5452ea9f703" />
 
 
 
@@ -135,6 +148,7 @@ Tiedostoon lisäsin:
   file.managed:
     - contents: "Snow state toimii!"
 
+<img width="445" height="113" alt="image" src="https://github.com/user-attachments/assets/0715659b-5143-4946-9309-283c8fcd0dda" />
 
 Sitten ajoin Salt tila
 
@@ -144,6 +158,7 @@ Tarkistin myös sen sisällön
 
 $cat /tmp/snowfile
 
+<img width="979" height="581" alt="image" src="https://github.com/user-attachments/assets/b480a74b-f9b9-49d4-b066-a37523745849" />
 
 
 
