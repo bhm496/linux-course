@@ -124,7 +124,7 @@ Sitten ajoin $git log --patch , koko commit loki jossa näkyy tehdyt muutokset.
 <img width="858" height="829" alt="image" src="https://github.com/user-attachments/assets/606f0352-50ef-4cb0-99bd-2a99c51c34c6" />
 
 
-Tarkistin myös nimi ja sähköpostini komennolla $git log ja kaikki näytti oikein.
+Tarkistin myös nimi ja sähköpostini komennolla $git log , ja kaikki näytti oikein.
 
 <img width="866" height="398" alt="image" src="https://github.com/user-attachments/assets/cc88f720-9d60-44fd-8e7a-d5452ea9f703" />
 
