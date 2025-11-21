@@ -3,7 +3,7 @@
 
 # x) Lue ja tiivistä.
 
--Chacon and Straub 2014
+1.Chacon and Straub 2014
 
 https://git-scm.com/book/en/v2 , https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 
@@ -11,20 +11,19 @@ https://git-scm.com/book/en/v2 , https://git-scm.com/book/en/v2/Getting-Started-
 
   Git pitää kirjaa jokaisesta muutoksesta, kuka sen teki ja milloin, kuten loki. 
 
-  Git toimii omalla koneellasi, eli voit tehdä töitä ilman verkkoa. 
-  Myöhemmin voit lähettää muutokset palvelimelle (esim. GitHub).  
+  Git mahdollistaa yhteistyön muiden kanssa.
 
 
 ---
 
 
--Gitin käyttö on lähinnä 'git add . && git commit; git pull && git push'. Selitä tuon komennon jokainen osa. Käytä apuna itse valitsemiasi lähteitä ja viittaa niihin.
+2.Gitin käyttö on lähinnä 'git add . && git commit; git pull && git push'. Selitä tuon komennon jokainen osa. Käytä apuna itse valitsemiasi lähteitä ja viittaa niihin.
 
 https://earthdatascience.org/workshops/intro-version-control-git/basic-git-commands/
 
 https://www.atlassian.com/git/tutorials/syncing/git-pull#:~:text=The%20git%20pull%20command%20is,Git%2Dbased%20collaboration%20work%20flows.
 
-  git add: Lisää kaikki muuttuneet tiedostot.
+  git add . : Lisää kaikki muuttuneet tiedostot.
 
   git commit: Tallentaa muutokset Gitin historiaan.
 
@@ -35,8 +34,7 @@ https://www.atlassian.com/git/tutorials/syncing/git-pull#:~:text=The%20git%20pul
 
 ---
 
-
--Varaston terokarvinen/suolax/ historia, eli loki ja muutokset. Kätevimmin komentokehotteesta 'git clone https://github.com/terokarvinen/suolax.git; cd suolax/; git log --patch --color|less -R'.
+3.Varaston terokarvinen/suolax/ historia, eli loki ja muutokset. Kätevimmin komentokehotteesta 'git clone https://github.com/terokarvinen/suolax.git; cd suolax/; git log --patch --color|less -R'.
 
 Wepistäkin saattaa onnistua kliksuttelemalla "Commits".
 
@@ -166,7 +164,32 @@ $cat /tmp/snowfile
 
 Tarkistuslista:
 
+-Komennot: add, commit, pull, push
 
+-Loki näyttää commitit, tekijä ja muutokset
+
+-Repo “snowflake”, README + GPLv3 luotu
+
+-Kloonaus, tehty muutos ja push toiminta 
+
+-Tyhmä muutos, reset , peruutettu muutos
+
+-Loki, näyttää nimi ja sähköposti
+
+-Salt-tila ajettu, tarkistus
+
+
+Lähteet:
+
+https://git-scm.com/book/en/v2
+
+https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
+
+https://earthdatascience.org/workshops/intro-version-control-git/basic-git-commands/
+
+https://www.atlassian.com/git/tutorials/syncing/git-pull#:~:text=The%20git%20pull%20command%20is,Git%2Dbased%20collaboration%20work%20flows.
+
+annetut vinkit
 
 
 
