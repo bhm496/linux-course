@@ -7,6 +7,7 @@
 
 https://git-scm.com/book/en/v2 , https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 
+
   Git on ohjelma, jolla voi tallentaa omatyön eri versiot ja palata niihin myöhemmin.
 
   Git pitää kirjaa jokaisesta muutoksesta, kuka sen teki ja milloin, kuten loki. 
@@ -23,6 +24,7 @@ https://earthdatascience.org/workshops/intro-version-control-git/basic-git-comma
 
 https://www.atlassian.com/git/tutorials/syncing/git-pull#:~:text=The%20git%20pull%20command%20is,Git%2Dbased%20collaboration%20work%20flows.
 
+
   git add . : Lisää kaikki muuttuneet tiedostot.
 
   git commit: Tallentaa muutokset Gitin historiaan.
@@ -37,6 +39,7 @@ https://www.atlassian.com/git/tutorials/syncing/git-pull#:~:text=The%20git%20pul
 3.Varaston terokarvinen/suolax/ historia, eli loki ja muutokset. Kätevimmin komentokehotteesta 'git clone https://github.com/terokarvinen/suolax.git; cd suolax/; git log --patch --color|less -R'.
 
 Wepistäkin saattaa onnistua kliksuttelemalla "Commits".
+
 
   Komennolla $git log --patch --color | less -R  nähdään: 
 
